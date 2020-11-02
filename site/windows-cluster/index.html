@@ -1,0 +1,867 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.12">
+    
+    
+      
+        <title>Configuring a cluster to run a Windows agent - Tidal Automation Agents Adminstration Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4dd2dd8d.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#configuring-a-cluster-to-run-a-windows-agent" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="Tidal Automation Agents Adminstration Guide" class="md-header-nav__button md-logo" aria-label="Tidal Automation Agents Adminstration Guide">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Tidal Automation Agents Adminstration Guide
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Configuring a cluster to run a Windows agent
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Tidal Automation Agents Adminstration Guide" class="md-nav__button md-logo" aria-label="Tidal Automation Agents Adminstration Guide">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Tidal Automation Agents Adminstration Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../about-agents/" title="About Tidal agents" class="md-nav__link">
+      About Tidal agents
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Managing Windows agent installations
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Managing Windows agent installations" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Managing Windows agent installations
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../windows-install/" title="Installing Windows agents" class="md-nav__link">
+      Installing Windows agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../windows-config/" title="Configuring Windows agents" class="md-nav__link">
+      Configuring Windows agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../windows-manage/" title="Managing Windows agents" class="md-nav__link">
+      Managing Windows agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Configuring a cluster to run a Windows agent
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="Configuring a cluster to run a Windows agent" class="md-nav__link md-nav__link--active">
+      Configuring a cluster to run a Windows agent
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-the-windows-agent-for-a-cluster" class="md-nav__link">
+    Configuring the Windows agent for a cluster
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../windows-uninstall/" title="Uninstalling Windows agents" class="md-nav__link">
+      Uninstalling Windows agents
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Managing Java-based agent installations
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Managing Java-based agent installations" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Managing Java-based agent installations
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../java-install/" title="Installing Java-based agents" class="md-nav__link">
+      Installing Java-based agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../java-config/" title="Configuring Java-based agents" class="md-nav__link">
+      Configuring Java-based agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../java-manage/" title="Managing Java-based agents" class="md-nav__link">
+      Managing Java-based agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../java-cluster/" title="Configuring a cluster to run a Java-based agent" class="md-nav__link">
+      Configuring a cluster to run a Java-based agent
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../secure-agents/" title="Securing agent and TA Master connections" class="md-nav__link">
+      Securing agent and TA Master connections
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Managing agents in Tidal Automation
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Managing agents in Tidal Automation" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        Managing agents in Tidal Automation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ta-agents-overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ta-agent-define/" title="Defining agent connections" class="md-nav__link">
+      Defining agent connections
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ta-agent-enable/" title="Enabling and disabling agent connections" class="md-nav__link">
+      Enabling and disabling agent connections
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ta-agent-modify/" title="Modifying agent connections" class="md-nav__link">
+      Modifying agent connections
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ta-agent-timezones/" title="Managing agent time zones" class="md-nav__link">
+      Managing agent time zones
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ta-agent-delete/" title="Deleting agent connections" class="md-nav__link">
+      Deleting agent connections
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Managing agent lists
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Managing agent lists" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon"></span>
+        Managing agent lists
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../agent-lists-about/" title="About agent lists" class="md-nav__link">
+      About agent lists
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../agent-lists-create/" title="Creating agent lists" class="md-nav__link">
+      Creating agent lists
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../agent-lists-aws/" title="Using AWS autoscaling with agent lists" class="md-nav__link">
+      Using AWS autoscaling with agent lists
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Troubleshooting agent issues
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Troubleshooting agent issues" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon"></span>
+        Troubleshooting agent issues
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../trb-overview/" title="Troubleshooting overview" class="md-nav__link">
+      Troubleshooting overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../trb-windows/" title="Troubleshooting Windows agents" class="md-nav__link">
+      Troubleshooting Windows agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../trb-java/" title="Troubleshooting Java-based agents" class="md-nav__link">
+      Troubleshooting Java-based agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../trb-tidal/" title="Troubleshooting agent issues in Tidal Automation" class="md-nav__link">
+      Troubleshooting agent issues in Tidal Automation
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Appendixes
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Appendixes" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon"></span>
+        Appendixes
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../app-datamover/" title="DataMover job support" class="md-nav__link">
+      DataMover job support
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../app-hadoop/" title="Installing Hadoop client libraries" class="md-nav__link">
+      Installing Hadoop client libraries
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-the-windows-agent-for-a-cluster" class="md-nav__link">
+    Configuring the Windows agent for a cluster
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="configuring-a-cluster-to-run-a-windows-agent">Configuring a cluster to run a Windows agent</h1>
+<p>A Windows agent can run in a Windows cluster environment. A cluster environment is defined as multiple machines working together as one system. The cluster environment provides a level of redundancy that allows other machines to take over when one of the machines in the cluster fails.</p>
+<p>The following instructions describe how to configure a two-node cluster environment to run the Windows agent offered by TA.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Before installing the agent for Windows on the nodes of a cluster, you must first complete and/or verify the following on each node:</p>
+<ul>
+<li>Verify that the systems on each node are identical</li>
+<li>Verify that the agent machines in each node meet the hardware and software requirements specified in the <em>Tidal Automation Compatibility Matrix</em>.</li>
+<li>Verify that the user installing the Windows agent has the specified user rights, including access to the registry on each machine.</li>
+<li>Verify that the cluster group has the following resouce types:<ul>
+<li>Network name</li>
+<li>IP address</li>
+<li>Physical disk</li>
+</ul>
+</li>
+</ul>
+<h2 id="configuring-the-windows-agent-for-a-cluster">Configuring the Windows agent for a cluster</h2>
+<p>During configuration, you should complete each step on all machines in the cluster before proceeding to the next step in the procedure, rather than completing all steps on one machine before moving to the next machine.</p>
+<p>An agent instance must exist on every node in the cluster before it can be configured to run as a cluster. If, for example, you add a third agent instance to one machine in the cluster, you must add a third instance to all other machines in the cluster before configuring the new instance on the first machine.</p>
+<p>To configure the agents:</p>
+<ol>
+<li>
+<p>Verify that the cluster works correctly. </p>
+<p>Check that the cluster software is installed and configured correctly by forcing a failure on a server. Be sure that a failover to another server occurs as intended and that control can be returned to the server that failed. Your Windows Cluster Administrator should help you with this.</p>
+</li>
+<li>
+<p>Install the agent for Windows on the first cluster node. </p>
+<p>Be sure to install the agent to a non-clustered physical disk on the local machine using the default directory path specified during installation.</p>
+<p><strong>Caution</strong>: You must install the agent on the same disk drive letter on each cluster node. For example, if you install the agent on the C drive of one node, you must also install the agent on the C drive of the other nodes.</p>
+</li>
+<li>
+<p>Stop the agent if it is running.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>If an agent instance is configured as part of a cluster, you will not be able to stop the agent. You must stop the agent service.</p>
+</div>
+</li>
+<li>
+<p>If you are adding an agent instance, add the agent instance to all machines in the cluster (see <a href="../windows-install">Installing Windows agents</a>). </p>
+<p>An agent instance must exist on every node in the cluster before it can be configured to run as a cluster. After install the agent instance on each of the nodes in the cluster, you can edit the agent instance to configure it for the cluster.</p>
+</li>
+<li>
+<p>From the Windows <strong>Start</strong> menu, choose <strong>Programs &gt; Tidal Automation &gt; Agent &gt; Instance Manager</strong> to display the Agent Instance Manager.</p>
+</li>
+<li>
+<p>Select the first agent instance; then select the <strong>Edit</strong> button to display the Agent Instance Manager’s configuration.</p>
+<p>If this agent instance is on a node that is configured for a cluster with an existing agent service, the <strong>Run on a cluster group</strong> option is available. If the node is not part of a cluster, this option is unavailable. You cannot proceed any further without verifying with your Windows Cluster Administrator that the node is correctly configured as a member of the cluster.</p>
+</li>
+<li>
+<p>Select the <strong>Run on a cluster group</strong> option to display the cluster configuration fields.</p>
+</li>
+<li>In the <strong>Cluster Group</strong> field, select the cluster group to which this agent instance belongs.</li>
+<li>
+<p>In the <strong>Physical Disk</strong> field, select the disk where the agent instance resides. </p>
+<p>All the disks that were created on all of the cluster groups are listed. Be sure to select a disk that exists on the cluster group you selected.</p>
+</li>
+<li>
+<p>In the Work Directory field, enter the pathname to the work directory that was created for the cluster group.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>This work directory must exist on a shared disk that moves with the active node on a fail-over.</p>
+</div>
+</li>
+<li>
+<p>In the <strong>Cluster Nodes</strong> field, select the node used by this agent instance. </p>
+</li>
+<li>When the fields are completed, select <strong>Save</strong>.</li>
+<li>Repeat this procedure for each agent instance.</li>
+</ol>
+<p>When each agent instance on each node is configured properly, start each clustered agent instance from its active node using the TA Service Control Manager. Starting the agent instance in the Service Control Manager automatically starts the agent resource in the Windows Cluster Administrator.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../windows-manage/" title="Managing Windows agents" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Managing Windows agents
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../windows-uninstall/" title="Uninstalling Windows agents" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Uninstalling Windows agents
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.3636a4ec.min.js"></script>
+      <script src="../assets/javascripts/bundle.e9fe3281.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

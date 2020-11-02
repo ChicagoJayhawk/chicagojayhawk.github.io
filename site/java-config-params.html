@@ -1,0 +1,375 @@
+<TABLE>
+    <TR>
+        <TH ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellHeading">
+                <A NAME="pgfId-1226028"></A>Parameter</P>
+        </TH>
+        <TH ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellHeading">
+                <A NAME="pgfId-1226030"></A>Description</P>
+        </TH>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226032"></A>agtresource</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226034"></A>Options for monitoring the following agent resources at specified time
+                intervals, in milliseconds (default=15000):</P>
+            <UL>
+                <LI CLASS="Cell-Bullet1">
+                    <A NAME="pgfId-1226159"></A><EM CLASS="B-Bold">
+                        CPU</EM>
+                    : Monitors CPU usage</LI>
+                <LI CLASS="Cell-Bullet1">
+                    <A NAME="pgfId-1226160"></A><EM CLASS="B-Bold">
+                        VMEM</EM>
+                    : Monitors virtual memory usage</LI>
+            </UL>
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226161"></A>Setting this parameter takes the following forms:</P>
+            <UL>
+                <LI CLASS="Cell-Bullet1">
+                    <A NAME="pgfId-1226162"></A><EM CLASS="B-Bold">
+                        agtresource=CPU;VMEM</EM>
+                    : Montors both resouces at the default 15-second intervals.</LI>
+                <LI CLASS="Cell-Bullet1">
+                    <A NAME="pgfId-1226163"></A><EM CLASS="B-Bold">
+                        agtresource=CPU,10000</EM>
+                    : Monitors only CPU usage at 10-second intervals.</LI>
+                <LI CLASS="Cell-Bullet1">
+                    <A NAME="pgfId-1226164"></A><EM CLASS="B-Bold">
+                        agtresource=CPU,10000;VMEM,20000</EM>
+                    : Monitors CPU usage at 10-second intervals and virtual memory usage at 20-second intervals.</LI>
+            </UL>
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226165"></A>The minimum interval is 5000 milliseconds, or 5 seconds.</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226036"></A>cpuload</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226244"></A>Whether to send agent system load information to the TA Master.</P>
+            <UL>
+                <LI CLASS="Cell-Bullet1">
+                    <A NAME="pgfId-1226245"></A><EM CLASS="B-Bold">
+                        y</EM>
+                    : Send load information to the TA Master at one-minute intervals.</LI>
+                <LI CLASS="Cell-Bullet1">
+                    <A NAME="pgfId-1226246"></A><EM CLASS="B-Bold">
+                        n</EM>
+                    (default): Send no information.</LI>
+            </UL>
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226247"></A><EM CLASS="B-Bold">
+                    Note</EM>
+                : Enabling this parameter is typically useful only when an Agent List Definition sets the <EM
+                    CLASS="B-Bold">
+                    List Type</EM>
+                field to a balanced option, as described in <A HREF="TidalAgentLists.htm#27521" CLASS="XRef">See Types
+                    of agent lists</A>.</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226040"></A>debug</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226042"></A>Whether to enable low-level debugging of agent activity. Set the value to
+                <EM CLASS="B-Bold">
+                    y</EM>
+                to enable debugging.</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226044"></A>encryptonly</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226046"></A>Whether to disable agents connections to any TA Master than disables message
+                encryption. Valid values include N (default) and Y.</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226048"></A>fp</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226525"></A>Pathname of a file that defines environment variables for an agent instance,
+                in the form: <EM CLASS="B-Bold">
+                    fp=/folder/file</EM>
+                .</P>
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226526"></A>Each agent instance can be assigned its own environment file and its
+                associated environment variables with their various values. Each variable specified in the environment
+                file should follow a <EM CLASS="Code-Bold">
+                    variable=value</EM>
+                format as in the following examples:</P>
+            <P CLASS="Ex1-Example1">
+                <A NAME="pgfId-1226527"></A>TZ=CST<BR>
+                SchedulerT=1<BR>
+                PATH=/usr/sbin</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226052"></A>ftptimeout</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226054"></A>Timeout, in milliseconds, for an FTP connection. Setting the value to 0
+                results in no timeout for the connection.</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226056"></A>homedir</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226583"></A>Whether to use the agent’s home directory or the runtime user’s home
+                directory as the working directory:</P>
+            <UL>
+                <LI CLASS="Cell-Bullet1">
+                    <A NAME="pgfId-1226584"></A><EM CLASS="B-Bold">
+                        y</EM>
+                    : Uses the runtime user’s home directory.</LI>
+                <LI CLASS="Cell-Bullet1">
+                    <A NAME="pgfId-1226585"></A><EM CLASS="B-Bold">
+                        n</EM>
+                    or omitted (default): Uses the agent’s home directory (where the agent software is installed).</LI>
+            </UL>
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226586"></A><EM CLASS="B-Bold">
+                    Note</EM>
+                : Enabling this parameter overrides the working directory setting in the TA Master for all jobs to use
+                the user’s home directory.</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226060"></A>java</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226062"></A>Pathname for the Java software.</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226064"></A>jobkillwait</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226066"></A>Time interval, in seconds, between sending a SIGTERM warning that a Unix job
+                is about to be aborted and sending the SIGKILL signal to abort the job. Default: 5 seconds.</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226068"></A>jobstopwait</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226070"></A>Time interval, in seconds, between sending a SIGSTP warning that a Unix job
+                is about to be put on hold and sending the SIGSTOP signal to pause the job. Default: 1 second.</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226072"></A>logdays</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226074"></A>Number of days to preserve log files.</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226080"></A>minmem/maxmem</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226082"></A>Minimum and maximum RAM, in MB, to allocate for agent processes. Defaults:
+                minmem=16. maxmem=48.</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226088"></A>multiftpstd</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226875"></A>How to handle FTP multi-file MGET, MPUT, or MDELETE actions that operate on
+                no files. Values include:</P>
+            <UL>
+                <LI CLASS="Cell-Bullet1">
+                    <A NAME="pgfId-1226876"></A><EM CLASS="B-Bold">
+                        Y</EM>
+                    (default): Allow the job to complete without reporting errors.</LI>
+                <LI CLASS="Cell-Bullet1">
+                    <A NAME="pgfId-1226090"></A><EM CLASS="B-Bold">
+                        N</EM>
+                    : Allow the job to complete abnormally if the actions operated on no files.</LI>
+            </UL>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226769"></A>ovb</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226771"></A>Whether to enable maximum level of debug logging for agent activity. Set the
+                value to <EM CLASS="B-Bold">
+                    tidaldebug</EM>
+                to enable this logging.</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226765"></A>profile</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226903"></A>Whether to override the <EM CLASS="B-Bold">
+                    For Unix, source user’s profile</EM>
+                setting on the <EM CLASS="B-Bold">
+                    Options</EM>
+                tab of the <EM CLASS="B-Bold">
+                    Job Definition</EM>
+                dialog box:</P>
+            <UL>
+                <LI CLASS="Cell-Bullet1">
+                    <A NAME="pgfId-1226904"></A><EM CLASS="B-Bold">
+                        y</EM>
+                    : Causes the runtime user profile to be used for all jobs run on the agent.</LI>
+                <LI CLASS="Cell-Bullet1">
+                    <A NAME="pgfId-1226905"></A><EM CLASS="B-Bold">
+                        n</EM>
+                    or omitted (default): Causes the runtime user profile to be used only for jobs whose definitions
+                    enable the setting.</LI>
+            </UL>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226761"></A>sftpumask</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226763"></A>Permission mask (4-digit octal) for files created on a Unix-based system
+                with the <EM CLASS="B-Bold">
+                    SFTP PUT</EM>
+                actions. Default=<EM CLASS="B-Bold">
+                    0022</EM>
+                .</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226757"></A>sshvldhst</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226983"></A><EM CLASS="RCN-RefCmdName">
+                    Location of SSH host key file.</EM>
+            </P>
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226984"></A>For SFTP host validation, the location of the file containing the public
+                keys for the servers that SFTP connections will be established with.</P>
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226985"></A>The host key file provides a list of hosts and their associated public keys.
+                The format of the file is similar to that used in OpenSSH. Each line contains the name of a host
+                followed by its IP address (separated by a comma), the type of key it has, and its key (in base-64
+                printable form). For example: </P>
+            <P CLASS="Ex1-Example1">
+                <A NAME="pgfId-1226986"></A><EM CLASS="RCN-RefCmdName">
+                    jackspc,192.168.1.1 ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAIE...</EM>
+            </P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226753"></A>sslvldcrt</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1227009"></A>Whether to disable FTPS SSL certificate validation by Tidal Automation
+                agents. Default=<EM CLASS="B-Bold">
+                    Y</EM>
+                .</P>
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1227013"></A>Tidal Automation agents validate the host defined in FTPS SSL certificate.
+                This host validation feature can be disabled by specifying a <EM CLASS="B-Bold">
+                    SSLVLDCRT</EM>
+                parameter on the agent command line. The default is SSLVLDCRT=Y (yes). You can turn this off by
+                specifying <EM CLASS="B-Bold">
+                    SSLVLDCRT=N</EM>
+                .</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1226749"></A>sslvldhst</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1227030"></A><EM CLASS="RCN-RefCmdName">
+                    Location of file containing host certification key file.</EM>
+            </P>
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1227031"></A>For FTPS host validation, the location of the file containing the public
+                host certificates (generally self-signed), if not authenticated through a certificate authority.</P>
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1227032"></A>The certificates in the file must be of the OpenSSL PEM format and be
+                bracketed as follows: </P>
+            <P CLASS="Ex1-Example1">
+                <A NAME="pgfId-1227033"></A> <EM CLASS="Code-Bold">
+                    -----BEGIN CERTIFICATE-----</EM>
+            </P>
+            <P CLASS="Ex1-Example1">
+                <A NAME="pgfId-1227034"></A> ... first certificate ...</P>
+            <P CLASS="Ex1-Example1">
+                <A NAME="pgfId-1227035"></A> <EM CLASS="Code-Bold">
+                    -----END CERTIFICATE-----</EM>
+            </P>
+            <P CLASS="Ex1-Example1">
+                <A NAME="pgfId-1227036"></A><EM CLASS="Code-Bold">
+                    -----BEGIN CERTIFICATE-----</EM>
+            </P>
+            <P CLASS="Ex1-Example1">
+                <A NAME="pgfId-1227037"></A> ... second certificate ...</P>
+            <P CLASS="Ex1-Example1">
+                <A NAME="pgfId-1227038"></A> <EM CLASS="Code-Bold">
+                    -----END CERTIFICATE-----</EM>
+            </P>
+        </TD>
+    </TR>
+</TABLE>

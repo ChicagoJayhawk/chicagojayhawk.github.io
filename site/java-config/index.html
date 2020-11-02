@@ -1,0 +1,1235 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.12">
+    
+    
+      
+        <title>Configuring Java-based agents - Tidal Automation Agents Adminstration Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4dd2dd8d.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#configuring-java-based-agents" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="Tidal Automation Agents Adminstration Guide" class="md-header-nav__button md-logo" aria-label="Tidal Automation Agents Adminstration Guide">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Tidal Automation Agents Adminstration Guide
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Configuring Java-based agents
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Tidal Automation Agents Adminstration Guide" class="md-nav__button md-logo" aria-label="Tidal Automation Agents Adminstration Guide">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Tidal Automation Agents Adminstration Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../about-agents/" title="About Tidal agents" class="md-nav__link">
+      About Tidal agents
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Managing Windows agent installations
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Managing Windows agent installations" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Managing Windows agent installations
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../windows-install/" title="Installing Windows agents" class="md-nav__link">
+      Installing Windows agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../windows-config/" title="Configuring Windows agents" class="md-nav__link">
+      Configuring Windows agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../windows-manage/" title="Managing Windows agents" class="md-nav__link">
+      Managing Windows agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../windows-cluster/" title="Configuring a cluster to run a Windows agent" class="md-nav__link">
+      Configuring a cluster to run a Windows agent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../windows-uninstall/" title="Uninstalling Windows agents" class="md-nav__link">
+      Uninstalling Windows agents
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Managing Java-based agent installations
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Managing Java-based agent installations" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Managing Java-based agent installations
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../java-install/" title="Installing Java-based agents" class="md-nav__link">
+      Installing Java-based agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Configuring Java-based agents
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="Configuring Java-based agents" class="md-nav__link md-nav__link--active">
+      Configuring Java-based agents
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#adding-agent-instances" class="md-nav__link">
+    Adding agent instances
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleting-agent-instances" class="md-nav__link">
+    Deleting agent instances
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-agent-parameters" class="md-nav__link">
+    Configuring agent parameters
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../java-manage/" title="Managing Java-based agents" class="md-nav__link">
+      Managing Java-based agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../java-cluster/" title="Configuring a cluster to run a Java-based agent" class="md-nav__link">
+      Configuring a cluster to run a Java-based agent
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../secure-agents/" title="Securing agent and TA Master connections" class="md-nav__link">
+      Securing agent and TA Master connections
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Managing agents in Tidal Automation
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Managing agents in Tidal Automation" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        Managing agents in Tidal Automation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ta-agents-overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ta-agent-define/" title="Defining agent connections" class="md-nav__link">
+      Defining agent connections
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ta-agent-enable/" title="Enabling and disabling agent connections" class="md-nav__link">
+      Enabling and disabling agent connections
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ta-agent-modify/" title="Modifying agent connections" class="md-nav__link">
+      Modifying agent connections
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ta-agent-timezones/" title="Managing agent time zones" class="md-nav__link">
+      Managing agent time zones
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ta-agent-delete/" title="Deleting agent connections" class="md-nav__link">
+      Deleting agent connections
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Managing agent lists
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Managing agent lists" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon"></span>
+        Managing agent lists
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../agent-lists-about/" title="About agent lists" class="md-nav__link">
+      About agent lists
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../agent-lists-create/" title="Creating agent lists" class="md-nav__link">
+      Creating agent lists
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../agent-lists-aws/" title="Using AWS autoscaling with agent lists" class="md-nav__link">
+      Using AWS autoscaling with agent lists
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Troubleshooting agent issues
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Troubleshooting agent issues" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon"></span>
+        Troubleshooting agent issues
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../trb-overview/" title="Troubleshooting overview" class="md-nav__link">
+      Troubleshooting overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../trb-windows/" title="Troubleshooting Windows agents" class="md-nav__link">
+      Troubleshooting Windows agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../trb-java/" title="Troubleshooting Java-based agents" class="md-nav__link">
+      Troubleshooting Java-based agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../trb-tidal/" title="Troubleshooting agent issues in Tidal Automation" class="md-nav__link">
+      Troubleshooting agent issues in Tidal Automation
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Appendixes
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Appendixes" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon"></span>
+        Appendixes
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../app-datamover/" title="DataMover job support" class="md-nav__link">
+      DataMover job support
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../app-hadoop/" title="Installing Hadoop client libraries" class="md-nav__link">
+      Installing Hadoop client libraries
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#adding-agent-instances" class="md-nav__link">
+    Adding agent instances
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleting-agent-instances" class="md-nav__link">
+    Deleting agent instances
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-agent-parameters" class="md-nav__link">
+    Configuring agent parameters
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="configuring-java-based-agents">Configuring Java-based agents</h1>
+<ul>
+<li><a href="#addding-an-agent-instances">Adding an agent instance</a></li>
+<li><a href="#modifying-an-agent-instance">Modifying an agent instance</a></li>
+<li><a href="#deleting-an-agent-instance">Deleting an agent instance</a></li>
+<li><a href="#configuring-agent-parameters">Configuring agent parameters</a></li>
+</ul>
+<h2 id="adding-agent-instances">Adding agent instances</h2>
+<p>You can configure Unix agents (add and delete agent instances) using the <strong>Agent Configuration Menu</strong>. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>While the installer must be run as the root user, the user who runs the agent service must have read access to the directory in which the agent is installed (<strong>/opt</strong>, by default).</p>
+</div>
+<p>To display this menu:</p>
+<ol>
+<li>Log on as agent owner on the agent machine.</li>
+<li>
+<p>Go to the <strong>bin</strong> directory by entering:</p>
+<p><code>cd /opt/TIDAL/Agent/bin</code></p>
+</li>
+<li>
+<p>Type in the following:</p>
+<p><code>./tagent config</code></p>
+<p>The <strong>Agent Configuration Menu</strong> opens.</p>
+</li>
+</ol>
+<h2 id="deleting-agent-instances">Deleting agent instances</h2>
+<p>To add an instance:</p>
+<ol>
+<li>In the <strong>Agent Configuration Menu</strong>, enter <strong>1</strong>; then select <strong>Enter</strong>.</li>
+<li>Enter the name of the agent, its port number, and the directory path to the Java binaries; then select <strong>Enter</strong>.</li>
+<li>Select <strong>Y</strong>, then <strong>Enter</strong>, to add the agent instance.</li>
+<li>
+<p>Start the agent by entering the following shell command:</p>
+<p><code>./tagent &lt;agent name&gt; start</code></p>
+</li>
+</ol>
+<h2 id="configuring-agent-parameters">Configuring agent parameters</h2>
+<p>You can configure the parameters of an agent by changing the parameter values in the <strong>tagent.ini</strong> file. The <strong>tagent.ini</strong> file is located in the Unix agent directory. If the default location was used during the agent installation, the agent files are located at <strong>/opt/TIDAL/Agent/bin</strong>. </p>
+<p>Following is an example of a <strong>tagent.ini</strong> file:</p>
+<pre><code># =============================================
+# Agent Configuration Information
+# ===========================================
+[config]
+agents=sun02,sun11,aix02,test
+degbug=yes
+ovb=tidaldebug
+java=/usr/bin/
+#sslvldcrt=n
+sshvldhst=/home/secure/prd2_id_rsa.pub
+sslvldhst=/home/secure/vvm1.pem
+
+[test]
+port=5915
+java=/usr/j2rel.4.2_06/bin
+minmem=32
+maxmem=64
+logdays=5
+
+[sun02]
+port=5915
+java=/usr/j2rel.4.2_06/bin
+sslvldcrt=n
+
+[sun11]
+port=5915
+encryptonly=y
+
+[aix02]
+port=5915
+java=/usr/java5_64/bin
+sslvldcrt=/home/secure/host.crt
+ulimitold=y
+</code></pre>
+
+<p>Restart the agent after modifying any of the agent’s parameters. </p>
+<p>You can set the following agent parameters.</p>
+<TABLE>
+    <TR>
+        <TH ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1226028"></A>Parameter</P>
+        </TH>
+        <TH ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1226030"></A>Description</P>
+        </TH>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1226032"></A>agtresource</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1226034"></A>Options for monitoring the following agent resources at specified time
+                intervals, in milliseconds (default=15000):</P>
+            <UL>
+                <LI>
+                    <A NAME="pgfId-1226159"></A><b>CPU</b>: Monitors CPU usage</LI>
+                <LI>
+                    <A NAME="pgfId-1226160"></A><b>VMEM</b>: Monitors virtual memory usage</LI>
+            </UL>
+            <P>
+                <A NAME="pgfId-1226161"></A>Setting this parameter takes the following forms:</P>
+            <UL>
+                <LI>
+                    <A NAME="pgfId-1226162"></A><b>agtresource=CPU;VMEM</b>: Montors both resouces at the default 15-second intervals.</LI>
+                <LI>
+                    <A NAME="pgfId-1226163"></A><b>agtresource=CPU,10000</b>: Monitors only CPU usage at 10-second intervals.</LI>
+                <LI>
+                    <A NAME="pgfId-1226164"></A><b>agtresource=CPU,10000;VMEM,20000</b>: Monitors CPU usage at 10-second intervals and virtual memory usage at 20-second intervals.</LI>
+            </UL>
+            <P>
+                <A NAME="pgfId-1226165"></A>The minimum interval is 5000 milliseconds, or 5 seconds.</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1226036"></A>cpuload</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1226244"></A>Whether to send agent system load information to the TA Master.</P>
+            <UL>
+                <LI>
+                    <A NAME="pgfId-1226245"></A><b>
+                        y</b>
+                    : Send load information to the TA Master at one-minute intervals.</LI>
+                <LI>
+                    <A NAME="pgfId-1226246"></A><b>
+                        n</b>
+                    (default): Send no information.</LI>
+            </UL>
+            <P>
+                <A NAME="pgfId-1226247"></A><b>Note</b>: Enabling this parameter is typically useful only when an Agent List Definition sets the <b>List Type</b> field to a balanced option, as described in <a href="../agent-lists-about#types-of-agent-lists">Types of agent lists</a>.</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1226040"></A>debug</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1226042"></A>Whether to enable low-level debugging of agent activity. Set the value to
+                <b> y</b> to enable debugging.</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1226044"></A>encryptonly</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1226046"></A>Whether to disable agents connections to any TA Master than disables message
+                encryption. Valid values include N (default) and Y.</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1226048"></A>fp</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1226525"></A>Pathname of a file that defines environment variables for an agent instance,
+                in the form: <b>fp=/folder/file</b>.</P>
+            <P>
+                <A NAME="pgfId-1226526"></A>Each agent instance can be assigned its own environment file and its
+                associated environment variables with their various values. Each variable specified in the environment
+                file should follow a <b>variable=value</b> format as in the following examples:</P>
+            <P>                
+                <code>
+                TZ=CST<br>
+                SchedulerT=1<br>
+                PATH=/usr/sbin
+                </code>
+                </P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1226052"></A>ftptimeout</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1226054"></A>Timeout, in milliseconds, for an FTP connection. Setting the value to 0
+                results in no timeout for the connection.</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1226056"></A>homedir</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1226583"></A>Whether to use the agent’s home directory or the runtime user’s home
+                directory as the working directory:</P>
+            <UL>
+                <LI>
+                    <A NAME="pgfId-1226584"></A><b>
+                        y</b>
+                    : Uses the runtime user’s home directory.</LI>
+                <LI>
+                    <A NAME="pgfId-1226585"></A><b>
+                        n</b>
+                    or omitted (default): Uses the agent’s home directory (where the agent software is installed).</LI>
+            </UL>
+            <P>
+                <A NAME="pgfId-1226586"></A><b>
+                    Note</b>
+                : Enabling this parameter overrides the working directory setting in the TA Master for all jobs to use
+                the user’s home directory.</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1226060"></A>java</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1226062"></A>Pathname for the Java software.</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1226064"></A>jobkillwait</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1226066"></A>Time interval, in seconds, between sending a SIGTERM warning that a Unix job
+                is about to be aborted and sending the SIGKILL signal to abort the job. Default: 5 seconds.</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1226068"></A>jobstopwait</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1226070"></A>Time interval, in seconds, between sending a SIGSTP warning that a Unix job
+                is about to be put on hold and sending the SIGSTOP signal to pause the job. Default: 1 second.</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1226072"></A>logdays</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1226074"></A>Number of days to preserve log files.</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1226080"></A>minmem/maxmem</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1226082"></A>Minimum and maximum RAM, in MB, to allocate for agent processes. Defaults:
+                minmem=16. maxmem=48.</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1226088"></A>multiftpstd</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1226875"></A>How to handle FTP multi-file MGET, MPUT, or MDELETE actions that operate on
+                no files. Values include:</P>
+            <UL>
+                <LI>
+                    <A NAME="pgfId-1226876"></A><b>
+                        Y</b>
+                    (default): Allow the job to complete without reporting errors.</LI>
+                <LI>
+                    <A NAME="pgfId-1226090"></A><b>
+                        N</b>
+                    : Allow the job to complete abnormally if the actions operated on no files.</LI>
+            </UL>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1226769"></A>ovb</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1226771"></A>Whether to enable maximum level of debug logging for agent activity. Set the
+                value to <b>
+                    tidaldebug</b>
+                to enable this logging.</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1226765"></A>profile</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1226903"></A>Whether to override the <b>
+                    For Unix, source user’s profile</b>
+                setting on the <b>
+                    Options</b>
+                tab of the <b>
+                    Job Definition</b>
+                dialog box:</P>
+            <UL>
+                <LI>
+                    <A NAME="pgfId-1226904"></A><b>
+                        y</b>
+                    : Causes the runtime user profile to be used for all jobs run on the agent.</LI>
+                <LI>
+                    <A NAME="pgfId-1226905"></A><b>
+                        n</b>
+                    or omitted (default): Causes the runtime user profile to be used only for jobs whose definitions
+                    enable the setting.</LI>
+            </UL>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1226761"></A>sftpumask</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1226763"></A>Permission mask (4-digit octal) for files created on a Unix-based system
+                with the <b>
+                    SFTP PUT</b>
+                actions. Default=<b>
+                    0022</b>
+                .</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1226757"></A>sshvldhst</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1226983"></A>
+                    Location of SSH host key file.</b>
+            </P>
+            <P>
+                <A NAME="pgfId-1226984"></A>For SFTP host validation, the location of the file containing the public
+                keys for the servers that SFTP connections will be established with.</P>
+            <P>
+                <A NAME="pgfId-1226985"></A>The host key file provides a list of hosts and their associated public keys.
+                The format of the file is similar to that used in OpenSSH. Each line contains the name of a host
+                followed by its IP address (separated by a comma), the type of key it has, and its key (in base-64
+                printable form). For example: </P>
+            <P CLASS="Ex1-Example1">
+                <A NAME="pgfId-1226986"></A>
+                <code>
+                jackspc,192.168.1.1 ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAIE...
+                </code>
+            </P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1226753"></A>sslvldcrt</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1227009"></A>Whether to disable FTPS SSL certificate validation by Tidal Automation
+                agents. Default=<b>
+                    Y</b>
+                .</P>
+            <P>
+                <A NAME="pgfId-1227013"></A>Tidal Automation agents validate the host defined in FTPS SSL certificate.
+                This host validation feature can be disabled by specifying a <b>
+                    SSLVLDCRT</b>
+                parameter on the agent command line. The default is SSLVLDCRT=Y (yes). You can turn this off by
+                specifying <b>
+                    SSLVLDCRT=N</b>
+                .</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1226749"></A>sslvldhst</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P>
+                <A NAME="pgfId-1227030"></A>
+                    Location of file containing host certification key file.
+            </P>
+            <P>
+                <A NAME="pgfId-1227031"></A>For FTPS host validation, the location of the file containing the public
+                host certificates (generally self-signed), if not authenticated through a certificate authority.</P>
+            <P>
+                <A NAME="pgfId-1227032"></A>The certificates in the file must be of the OpenSSL PEM format and be
+                bracketed as follows: </P>
+            <P>
+                <A NAME="pgfId-1227033"></A>
+                <code>
+                    -----BEGIN CERTIFICATE-----<br>
+                    ... first certificate ...<br>
+                    ... second certificate ...<br>
+                    -----END CERTIFICATE-----<br>
+                </code>
+            </P>
+        </TD>
+    </TR>
+</TABLE>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../java-install/" title="Installing Java-based agents" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Installing Java-based agents
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../java-manage/" title="Managing Java-based agents" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Managing Java-based agents
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.3636a4ec.min.js"></script>
+      <script src="../assets/javascripts/bundle.e9fe3281.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,41 @@
+site_name: Tidal Automation Agents Adminstration Guide
+theme: 
+  name: material
+  collapse_by_default: true
+markdown_extensions:
+  - admonition
+
+
+nav:
+  - About Tidal agents: about-agents.md
+  - Managing Windows agent installations: 
+    - Installing Windows agents: windows-install.md
+    - Configuring Windows agents: windows-config.md
+    - Managing Windows agents: windows-manage.md
+    - Configuring a cluster to run a Windows agent: windows-cluster.md
+    - Uninstalling Windows agents: windows-uninstall.md
+  - Managing Java-based agent installations: 
+    - Installing Java-based agents: java-install.md
+    - Configuring Java-based agents: java-config.md
+    - Managing Java-based agents: java-manage.md
+    - Configuring a cluster to run a Java-based agent: java-cluster.md
+  - Securing agent and TA Master connections: secure-agents.md
+  - Managing agents in Tidal Automation:
+    - Overview: ta-agents-overview.md
+    - Defining agent connections: ta-agent-define.md
+    - Enabling and disabling agent connections: ta-agent-enable.md
+    - Modifying agent connections: ta-agent-modify.md
+    - Managing agent time zones: ta-agent-timezones.md
+    - Deleting agent connections: ta-agent-delete.md
+  - Managing agent lists:
+    - About agent lists: agent-lists-about.md
+    - Creating agent lists: agent-lists-create.md
+    - Using AWS autoscaling with agent lists: agent-lists-aws.md
+  - Troubleshooting agent issues: 
+    - Troubleshooting overview: trb-overview.md
+    - Troubleshooting Windows agents: trb-windows.md
+    - Troubleshooting Java-based agents: trb-java.md
+    - Troubleshooting agent issues in Tidal Automation: trb-tidal.md
+  - Appendixes:
+    - DataMover job support: app-datamover.md
+    - Installing Hadoop client libraries: app-hadoop.md

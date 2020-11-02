@@ -1,0 +1,988 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.12">
+    
+    
+      
+        <title>DataMover job support - Tidal Automation Agents Adminstration Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4dd2dd8d.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#datamover-job-support" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="Tidal Automation Agents Adminstration Guide" class="md-header-nav__button md-logo" aria-label="Tidal Automation Agents Adminstration Guide">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Tidal Automation Agents Adminstration Guide
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              DataMover job support
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Tidal Automation Agents Adminstration Guide" class="md-nav__button md-logo" aria-label="Tidal Automation Agents Adminstration Guide">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Tidal Automation Agents Adminstration Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../about-agents/" title="About Tidal agents" class="md-nav__link">
+      About Tidal agents
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Managing Windows agent installations
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Managing Windows agent installations" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Managing Windows agent installations
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../windows-install/" title="Installing Windows agents" class="md-nav__link">
+      Installing Windows agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../windows-config/" title="Configuring Windows agents" class="md-nav__link">
+      Configuring Windows agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../windows-manage/" title="Managing Windows agents" class="md-nav__link">
+      Managing Windows agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../windows-cluster/" title="Configuring a cluster to run a Windows agent" class="md-nav__link">
+      Configuring a cluster to run a Windows agent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../windows-uninstall/" title="Uninstalling Windows agents" class="md-nav__link">
+      Uninstalling Windows agents
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Managing Java-based agent installations
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Managing Java-based agent installations" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Managing Java-based agent installations
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../java-install/" title="Installing Java-based agents" class="md-nav__link">
+      Installing Java-based agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../java-config/" title="Configuring Java-based agents" class="md-nav__link">
+      Configuring Java-based agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../java-manage/" title="Managing Java-based agents" class="md-nav__link">
+      Managing Java-based agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../java-cluster/" title="Configuring a cluster to run a Java-based agent" class="md-nav__link">
+      Configuring a cluster to run a Java-based agent
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../secure-agents/" title="Securing agent and TA Master connections" class="md-nav__link">
+      Securing agent and TA Master connections
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Managing agents in Tidal Automation
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Managing agents in Tidal Automation" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        Managing agents in Tidal Automation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ta-agents-overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ta-agent-define/" title="Defining agent connections" class="md-nav__link">
+      Defining agent connections
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ta-agent-enable/" title="Enabling and disabling agent connections" class="md-nav__link">
+      Enabling and disabling agent connections
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ta-agent-modify/" title="Modifying agent connections" class="md-nav__link">
+      Modifying agent connections
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ta-agent-timezones/" title="Managing agent time zones" class="md-nav__link">
+      Managing agent time zones
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ta-agent-delete/" title="Deleting agent connections" class="md-nav__link">
+      Deleting agent connections
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Managing agent lists
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Managing agent lists" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon"></span>
+        Managing agent lists
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../agent-lists-about/" title="About agent lists" class="md-nav__link">
+      About agent lists
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../agent-lists-create/" title="Creating agent lists" class="md-nav__link">
+      Creating agent lists
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../agent-lists-aws/" title="Using AWS autoscaling with agent lists" class="md-nav__link">
+      Using AWS autoscaling with agent lists
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Troubleshooting agent issues
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Troubleshooting agent issues" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon"></span>
+        Troubleshooting agent issues
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../trb-overview/" title="Troubleshooting overview" class="md-nav__link">
+      Troubleshooting overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../trb-windows/" title="Troubleshooting Windows agents" class="md-nav__link">
+      Troubleshooting Windows agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../trb-java/" title="Troubleshooting Java-based agents" class="md-nav__link">
+      Troubleshooting Java-based agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../trb-tidal/" title="Troubleshooting agent issues in Tidal Automation" class="md-nav__link">
+      Troubleshooting agent issues in Tidal Automation
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
+    
+    <label class="md-nav__link" for="nav-8">
+      Appendixes
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Appendixes" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon"></span>
+        Appendixes
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        DataMover job support
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="DataMover job support" class="md-nav__link md-nav__link--active">
+      DataMover job support
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-s3-functionality" class="md-nav__link">
+    Amazon S3 functionality
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hfs-functionality" class="md-nav__link">
+    HFS functionality
+  </a>
+  
+    <nav class="md-nav" aria-label="HFS functionality">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hortonworks-hadoop" class="md-nav__link">
+    Hortonworks Hadoop
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudera-hadoop" class="md-nav__link">
+    Cloudera Hadoop
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mapr-hadoop" class="md-nav__link">
+    MapR Hadoop
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hfs-usage-notes" class="md-nav__link">
+    HFS usage notes
+  </a>
+  
+    <nav class="md-nav" aria-label="HFS usage notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agent-ini-file" class="md-nav__link">
+    Agent ini file
+  </a>
+  
+    <nav class="md-nav" aria-label="Agent ini file">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kerberos-configuration" class="md-nav__link">
+    Kerberos Configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapr-configuration" class="md-nav__link">
+    MapR Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-configuration-file" class="md-nav__link">
+    User configuration file
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../app-hadoop/" title="Installing Hadoop client libraries" class="md-nav__link">
+      Installing Hadoop client libraries
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-s3-functionality" class="md-nav__link">
+    Amazon S3 functionality
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hfs-functionality" class="md-nav__link">
+    HFS functionality
+  </a>
+  
+    <nav class="md-nav" aria-label="HFS functionality">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hortonworks-hadoop" class="md-nav__link">
+    Hortonworks Hadoop
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudera-hadoop" class="md-nav__link">
+    Cloudera Hadoop
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mapr-hadoop" class="md-nav__link">
+    MapR Hadoop
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hfs-usage-notes" class="md-nav__link">
+    HFS usage notes
+  </a>
+  
+    <nav class="md-nav" aria-label="HFS usage notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agent-ini-file" class="md-nav__link">
+    Agent ini file
+  </a>
+  
+    <nav class="md-nav" aria-label="Agent ini file">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kerberos-configuration" class="md-nav__link">
+    Kerberos Configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapr-configuration" class="md-nav__link">
+    MapR Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-configuration-file" class="md-nav__link">
+    User configuration file
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="datamover-job-support">DataMover job support</h1>
+<p><strong>Note</strong>: DataMover jobs are only supported on Unix/Linux agents.</p>
+<h2 id="amazon-s3-functionality">Amazon S3 functionality</h2>
+<p>The total volume of data and number of objects you can store are unlimited. Individual Amazon S3 objects can range in size from one byte (1 B) to five terabytes (5 TB). The largest object that can be uploaded in a single PUT is five gigabytes (5 GB). For objects larger than 100 megabytes (100 MB), customers should consider using the multipart upload capability.</p>
+<p>When using multipart upload, each part must be at least 5 MB in size, except the last part. So, in the list of files provided on the dialog box, each must be at least 5MB other than the last file in the list.</p>
+<h2 id="hfs-functionality">HFS functionality</h2>
+<h3 id="hortonworks-hadoop">Hortonworks Hadoop</h3>
+<p>Download the Hortonworks Hadoop client libraries and copy into the <strong>Agent/lib</strong> directory. See <a href="../app-hadoop/#installing-hadoop-client-libraries">Installing Hadoop client libraries</a>, for information about obtaining and installing the libraries.</p>
+<h2 id="cloudera-hadoop">Cloudera Hadoop</h2>
+<p>Download the Cloudera Hadoop client libraries and copy into the <strong>Agent/lib</strong> directory. See <a href="../app-hadoop/#installing-hadoop-client-libraries">Installing Hadoop client libraries</a>, for information about obtaining and installing the libraries.</p>
+<h2 id="mapr-hadoop">MapR Hadoop</h2>
+<p>To use DataMover for MapR Hadoop, the MapR client must be installed on the machine running the TA agent. The TA agent supports MapR client versions 1.2.9 and 2.0.0. It is the user's responsibility to ensure that the MapR client is installed properly and is communicating with the MapR cluster. For more information on how to set up the MapR client, see:</p>
+<p><a href="http://www.mapr.com/doc/display/MapR/Setting+Up+the+Client">http://www.mapr.com/doc/display/MapR/Setting+Up+the+Client</a></p>
+<p>No files need to be copied for MapR Hadoop. However, updates to the tagent.ini file are required. See <a href="#hfs-usage-notes">HFS usage notes</a> for details.</p>
+<h2 id="hfs-usage-notes">HFS usage notes</h2>
+<h3 id="agent-ini-file">Agent ini file</h3>
+<h4 id="kerberos-configuration">Kerberos Configuration</h4>
+<p>If an agent is going to access any Hadoop file system that is secured by Kerberos, the new <strong>Kerberos Realm</strong> and <strong>Kerberos KDC Name</strong> must be specified in the agent's <strong>tagent.ini</strong> file. Like other <strong>tagent.ini</strong> parameters, these values can be specified at a global (all) agent level or on a per agent basis. Unless both of these parameters are defined, the agent will not attempt Kerberos authentication, even if the Hadoop Data Mover Job has checked the <strong>Use Kerberos Authentication</strong> check box.</p>
+<h4 id="mapr-configuration">MapR Configuration</h4>
+<p>When using MapR Hadoop on a 64-bit machine, add the following line to your <strong>tagent.ini</strong> file (assuming the MapR client is installed in the default location):</p>
+<p><code>jvmpara=-Djava.library.path=/opt/mapr/hadoop/hadoop-0.20.2/lib/native/Linux-amd64-64</code></p>
+<p>When using MapR Hadoop on a 32-bit machine, add the following line to your tagent.ini file (assuming the MapR client is installed in the default location):</p>
+<p><code>jvmpara=-Djava.library.path=/opt/mapr/hadoop/hadoop-0.20.2/lib/native/Linux-i386-32</code></p>
+<p>To use MapR Hadoop, you must also specify the location of the MapR Hadoop jar files. Use the <strong>MapRClasspath</strong> parameter to specify the full path to the required MapR Hadoop jar file directory.</p>
+<p>Add the following line to your tagent.ini file (assuming the MapR client is installed in the default location):</p>
+<p><code>maprclasspath=/opt/mapr/hadoop/hadoop-0.20.2/lib/*</code></p>
+<h3 id="user-configuration-file">User configuration file</h3>
+<p>With this release of the agent, there is a new user configuration file, TdlUser.cfg, that specifies parameters for the runtime user associated with a job. It is located in the agent's root directory, for example, <code>/opt/TIDAL/Agent/&lt;name-of-agent&gt;</code>.</p>
+<p>The user configuration file has the following layout:</p>
+<pre><code>parameter=value 
+parameter=value
+
+[user-1] 
+parameter=value 
+parameter=value
+.
+.[user-2] 
+parameter=value 
+parameter=value
+</code></pre>
+
+<p>A parameter value is specified in a parameter/value line which has the form parameter=value. Default configuration parameters to be applied to all users are specified before the first user-specific parameter values, which is referred to as the “default section”. To specify parameter values and/or to override a default parameter value for a particular user, add a section for that user. A user section starts with a "user section" line that contains the user name enclosed in brackets (“[", “]”) followed by a number of parameter/value lines. All parameter/value lines following a user section line up until the next user section line (or end of the file) are applied to that specific user. Parameter values specified in a user section override parameter values that are specified in the default section. Lines that start with the "#" character are ignored.</p>
+<p>The new user configuration parameters are <strong>KerberosPrincipal</strong> and <strong>KeyTabFilePath</strong>. These parameters specify the <strong>Principal</strong> and <strong>KeyTab</strong> file for the agent to use when performing Kerberos authentication.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../trb-tidal/" title="Troubleshooting agent issues in Tidal Automation" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Troubleshooting agent issues in Tidal Automation
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../app-hadoop/" title="Installing Hadoop client libraries" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Installing Hadoop client libraries
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.3636a4ec.min.js"></script>
+      <script src="../assets/javascripts/bundle.e9fe3281.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

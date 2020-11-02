@@ -1,0 +1,415 @@
+<TABLE>
+    <TR>
+        <TH ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellHeading">
+                <A NAME="pgfId-1227725"></A>Parameter</P>
+        </TH>
+        <TH ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellHeading">
+                <A NAME="pgfId-1227727"></A>Set in...</P>
+        </TH>
+        <TH ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellHeading">
+                <A NAME="pgfId-1227729"></A>Description</P>
+        </TH>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1227731"></A>agent</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1227733"></A>SCP</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1227735"></A>Name of the TA agent</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1228153"></A>agtresource</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1228155"></A>INI</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1228266"></A>Options for monitoring the following agent resources at
+                specified time intervals in milliseconds (default=15000):</P>
+            <UL>
+                <LI CLASS="Cell-Bullet1">
+                    <A NAME="pgfId-1228267"></A><EM CLASS="B-Bold">
+                        CPU</EM>
+                    : Sends agent CPU usage data to the TA Master</LI>
+                <LI CLASS="Cell-Bullet1">
+                    <A NAME="pgfId-1228268"></A><EM CLASS="B-Bold">
+                        VMEM</EM>
+                    : Sends agent memory statistics to the TA Master</LI>
+            </UL>
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1228269"></A>Setting this parameter takes the following forms:</P>
+            <UL>
+                <LI CLASS="Cell-Bullet1">
+                    <A NAME="pgfId-1228270"></A><EM CLASS="B-Bold">
+                        agtresource=CPU;VMEM</EM>
+                    : Montors both resouces at the default 15000 (15-second) intervals.</LI>
+                <LI CLASS="Cell-Bullet1">
+                    <A NAME="pgfId-1228271"></A><EM CLASS="B-Bold">
+                        agtresource=CPU,10000</EM>
+                    : Monitors only CPU usage at 10-second intervals.</LI>
+                <LI CLASS="Cell-Bullet1">
+                    <A NAME="pgfId-1228272"></A><EM CLASS="B-Bold">
+                        agtresource=CPU,10000;VMEM,20000</EM>
+                    : Monitors CPU usage at 10-second intervals and virtual memory usage at
+                    20-second intervals.</LI>
+            </UL>
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1228157"></A>The minimum interval is 5000 milliseconds, or 5 seconds.
+            </P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1227871"></A>cpuload</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1227873"></A>SCP</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1227875"></A>Whether to monitor CPU load on the agent. Valid values
+                include: <EM CLASS="B-Bold">
+                    Y</EM>
+                and <EM CLASS="B-Bold">
+                    N</EM>
+                (default).</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1227737"></A>debug</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1227739"></A>SCP/INI</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1229147"></A>Debugging level. Valid values include:</P>
+            <UL>
+                <LI CLASS="Cell-Bullet1">
+                    <A NAME="pgfId-1229148"></A><EM CLASS="B-Bold">
+                        y</EM>
+                    : Turns on low-level debugging</LI>
+                <LI CLASS="Cell-Bullet1">
+                    <A NAME="pgfId-1227741"></A><EM CLASS="B-Bold">
+                        high</EM>
+                    : Turns on maximum-level debugging</LI>
+            </UL>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1227743"></A>encryptonly</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1227745"></A>SCP/INI</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1229175"></A>Whether to disable encrypted connections between agents
+                and TA Master instances. Valid values include <EM CLASS="B-Bold">
+                    N</EM>
+                (default) and <EM CLASS="B-Bold">
+                    Y</EM>
+                .</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1227749"></A>filelockcheck</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1227751"></A>SCP/INI</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1227753"></A>Whether the directory monitoring job should skip files
+                that are opened by another process to avoid potential access conflicts. Valid values
+                include: <EM CLASS="B-Bold">
+                    Y</EM>
+                (default) and <EM CLASS="B-Bold">
+                    N</EM>
+                .</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1227755"></A>folderdep</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1227757"></A>SCP/INI</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1227759"></A>Whether the file monitoring job should monitor
+                directories. Valid values include: <EM CLASS="B-Bold">
+                    Y</EM>
+                and <EM CLASS="B-Bold">
+                    N</EM>
+                (default).</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1227929"></A>ftptimeout</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1227931"></A>INI</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1227933"></A>Timeout, in milliseconds, for an FTP connection. Default
+                is 120000 (two minutes). Setting the value to 0 results in no timeout for the
+                connection.</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1227923"></A>logdays</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1227925"></A>SCP/INI</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1227927"></A>Number of days to preserve logs. Default: 7.</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1227917"></A>logsize</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1227919"></A>SCP/INI</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1227921"></A>Maximum size, in bytes, of log files. Default: 1024000.
+            </P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1227911"></A>msgthreads</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1227913"></A>SCP</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1229255"></A>Number of CPU threads to devote to messages. Default: 5.
+            </P>
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1229256"></A>Tidal recommends using the default value for machines
+                with one or two CPUs. If a machine has more CPUs, you might want to increase the
+                thread count to improve performance.</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1227905"></A>multiftpstd</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1227907"></A>INI</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1229344"></A>How to handle FTP multi-file MGET, MPUT, or MDELETE
+                actions that operate on no files. Values include:</P>
+            <UL>
+                <LI CLASS="Cell-Bullet1">
+                    <A NAME="pgfId-1229345"></A><EM CLASS="B-Bold">
+                        Y</EM>
+                    (default): Allow the job to complete without reporting errors.</LI>
+                <LI CLASS="Cell-Bullet1">
+                    <A NAME="pgfId-1227909"></A><EM CLASS="B-Bold">
+                        N</EM>
+                    : Allow the job to complete abnormally if the actions operated on no files.</LI>
+            </UL>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1228191"></A>path</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1228193"></A>SCP</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1228195"></A>Directory for the agent’s ouptut. By default, output is
+                stored in the agent’s root directory.</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1228206"></A>port</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1228208"></A>SCP</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1228210"></A>Port number through which the TA Master communicates
+                with the agent.</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1228220"></A>rjaport</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1228222"></A>SCP</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1228224"></A>Remote job port number.</P>
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1232459"></A>You can specify two ports by using the form: <EM
+                    CLASS="I-Italic">
+                    port1</EM>
+                :<EM CLASS="I-Italic">
+                    port2</EM>
+                .</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1228057"></A>sftpparallemode</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1228059"></A>INI</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1229373"></A>Whether secure FTP file transfers (upload and download
+                operations) can run in parallel. Valid values include:</P>
+            <UL>
+                <LI CLASS="Cell-Bullet1">
+                    <A NAME="pgfId-1229374"></A><EM CLASS="B-Bold">
+                        Y</EM>
+                    (default): File transers can run simultaneously (in parallel).</LI>
+                <LI CLASS="Cell-Bullet1">
+                    <A NAME="pgfId-1228061"></A><EM CLASS="B-Bold">
+                        N</EM>
+                    : File transfers are sent sequentially.</LI>
+            </UL>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1228051"></A>sftpumask</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1228053"></A>INI</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1228055"></A>Permission mask (4-digit octal) for files created on a
+                Unix-based system with the <EM CLASS="B-Bold">
+                    SFTP PUT</EM>
+                actions. Default=<EM CLASS="B-Bold">
+                    0022</EM>
+                .</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1228045"></A>sslvldcrt</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1228047"></A>SCP/INI</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1228049"></A>Whether to validate SSL certificate validation by Tidal
+                Automation agents. Default=<EM CLASS="B-Bold">
+                    Y</EM>
+                .</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1228039"></A>stdout</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1228041"></A>SCP/INI</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1228043"></A>Whether to send output messages to standard output
+                (console) in addition to log files. Valid values include: <EM CLASS="B-Bold">
+                    Y</EM>
+                and <EM CLASS="B-Bold">
+                    N</EM>
+                (default).</P>
+        </TD>
+    </TR>
+    <TR>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1228033"></A>substticks</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1228035"></A>INI</P>
+        </TD>
+        <TD ROWSPAN="1" COLSPAN="1">
+            <P CLASS="CellBody">
+                <A NAME="pgfId-1228037"></A>Whether to substitute single quotes (‘) with double
+                quotes (“) in strings. Valid values include: <EM CLASS="B-Bold">
+                    Y</EM>
+                and <EM CLASS="B-Bold">
+                    N</EM>
+                (default).</P>
+        </TD>
+    </TR>
+</TABLE>

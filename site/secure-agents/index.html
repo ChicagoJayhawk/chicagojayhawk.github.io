@@ -1,0 +1,897 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.12">
+    
+    
+      
+        <title>Securing agent and TA Master connections - Tidal Automation Agents Adminstration Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4dd2dd8d.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#securing-agent-and-ta-master-connections" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="Tidal Automation Agents Adminstration Guide" class="md-header-nav__button md-logo" aria-label="Tidal Automation Agents Adminstration Guide">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Tidal Automation Agents Adminstration Guide
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Securing agent and TA Master connections
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Tidal Automation Agents Adminstration Guide" class="md-nav__button md-logo" aria-label="Tidal Automation Agents Adminstration Guide">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Tidal Automation Agents Adminstration Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../about-agents/" title="About Tidal agents" class="md-nav__link">
+      About Tidal agents
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Managing Windows agent installations
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Managing Windows agent installations" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Managing Windows agent installations
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../windows-install/" title="Installing Windows agents" class="md-nav__link">
+      Installing Windows agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../windows-config/" title="Configuring Windows agents" class="md-nav__link">
+      Configuring Windows agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../windows-manage/" title="Managing Windows agents" class="md-nav__link">
+      Managing Windows agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../windows-cluster/" title="Configuring a cluster to run a Windows agent" class="md-nav__link">
+      Configuring a cluster to run a Windows agent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../windows-uninstall/" title="Uninstalling Windows agents" class="md-nav__link">
+      Uninstalling Windows agents
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Managing Java-based agent installations
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Managing Java-based agent installations" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Managing Java-based agent installations
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../java-install/" title="Installing Java-based agents" class="md-nav__link">
+      Installing Java-based agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../java-config/" title="Configuring Java-based agents" class="md-nav__link">
+      Configuring Java-based agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../java-manage/" title="Managing Java-based agents" class="md-nav__link">
+      Managing Java-based agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../java-cluster/" title="Configuring a cluster to run a Java-based agent" class="md-nav__link">
+      Configuring a cluster to run a Java-based agent
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Securing agent and TA Master connections
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="Securing agent and TA Master connections" class="md-nav__link md-nav__link--active">
+      Securing agent and TA Master connections
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#about-the-masterscfg-file" class="md-nav__link">
+    About the Masters.cfg file
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agent-connection-protocol" class="md-nav__link">
+    Agent connection protocol
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Managing agents in Tidal Automation
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Managing agents in Tidal Automation" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        Managing agents in Tidal Automation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ta-agents-overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ta-agent-define/" title="Defining agent connections" class="md-nav__link">
+      Defining agent connections
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ta-agent-enable/" title="Enabling and disabling agent connections" class="md-nav__link">
+      Enabling and disabling agent connections
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ta-agent-modify/" title="Modifying agent connections" class="md-nav__link">
+      Modifying agent connections
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ta-agent-timezones/" title="Managing agent time zones" class="md-nav__link">
+      Managing agent time zones
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ta-agent-delete/" title="Deleting agent connections" class="md-nav__link">
+      Deleting agent connections
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Managing agent lists
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Managing agent lists" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon"></span>
+        Managing agent lists
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../agent-lists-about/" title="About agent lists" class="md-nav__link">
+      About agent lists
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../agent-lists-create/" title="Creating agent lists" class="md-nav__link">
+      Creating agent lists
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../agent-lists-aws/" title="Using AWS autoscaling with agent lists" class="md-nav__link">
+      Using AWS autoscaling with agent lists
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Troubleshooting agent issues
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Troubleshooting agent issues" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon"></span>
+        Troubleshooting agent issues
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../trb-overview/" title="Troubleshooting overview" class="md-nav__link">
+      Troubleshooting overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../trb-windows/" title="Troubleshooting Windows agents" class="md-nav__link">
+      Troubleshooting Windows agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../trb-java/" title="Troubleshooting Java-based agents" class="md-nav__link">
+      Troubleshooting Java-based agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../trb-tidal/" title="Troubleshooting agent issues in Tidal Automation" class="md-nav__link">
+      Troubleshooting agent issues in Tidal Automation
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Appendixes
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Appendixes" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon"></span>
+        Appendixes
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../app-datamover/" title="DataMover job support" class="md-nav__link">
+      DataMover job support
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../app-hadoop/" title="Installing Hadoop client libraries" class="md-nav__link">
+      Installing Hadoop client libraries
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#about-the-masterscfg-file" class="md-nav__link">
+    About the Masters.cfg file
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agent-connection-protocol" class="md-nav__link">
+    Agent connection protocol
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="securing-agent-and-ta-master-connections">Securing agent and TA Master connections</h1>
+<p>Each agent includes a <strong>Masters.cfg</strong> file that lets you strictly control which Tidal Automation Master instances can connect to it. You can uniquely identify the specific TA Masters to which a TA agent will create connections by specifying any of the following:</p>
+<ul>
+<li>TA Master alias</li>
+<li>TA Master alias and a specific local TCP/IP address</li>
+<li>TA Master alias, the specific local TCP/IP address, and a global TCP/IP address</li>
+</ul>
+<p>The <strong>Masters.cfg</strong> file must be created in the agent’s local directory. This directory is in the install path of the agent and has the name of the agent as it was specified when the agent was defined, similar to the following default locations: </p>
+<ul>
+<li>
+<p>For 32-bit Windows</p>
+<p><code>C:\Program Files\TIDAL\Agent\TIDAL_AGENT_1</code></p>
+</li>
+<li>
+<p>For 64-bit Windows </p>
+<p><code>C:\Program Files(x86)\TIDAL\Agent\TIDAL_AGENT_1</code></p>
+</li>
+<li>
+<p>For Unix (Linux, z/OS)</p>
+<p><code>/opt/TIDAL/Agent/TidalAgent1</code></p>
+</li>
+<li>
+<p>For OVMS</p>
+<p><code>sys$sysdevice:[tidal.agent.tidalagent1]</code></p>
+</li>
+</ul>
+<p>This file should have limited access using native system access control definitions.</p>
+<!--
+## Agent connect protocol
+
+The following describes the normal connection sequence for an Agent to Master connection to be established.
+
+The Master connects to the Agent well-known port (default 5912, configurable).  The Master sends a registration message to the Agent specifying the Masters IP address and listening port (and some other configuration information).  This connection is then terminated.
+
+For each Master that has registered as above, the Agent will attempt to connect using the information from the registration.  This will happen each time the connection is lost for any reason.
+
+The Agent will attempt to connect to the IP and port provided by the Master in the registration message.  If this fails, the Agent will attempt to connect to the IP obtained from the network as the source IP (may be firewall IP) and the port provided in the registration message.
+
+When the connection is made, the Agent will generate an encryption key based on a random seed.  This encryption key and other configuration information about the Agent will be sent to the Master.  The encryption key is 'wrapped' by a method that the Master knows how to 'unwrap' in order to get the raw key.  This key is used to encrypt the body of all future messages (encryption is a configurable option that is on by default).
+
+-->
+
+<h2 id="about-the-masterscfg-file">About the Masters.cfg file</h2>
+<p>The <strong>Masters.cfg</strong> file uses the following structure:</p>
+<pre><code>[INCLUDE/EXCLUDE]
+TA Master alias entry
+TA Master alias entry
+</code></pre>
+
+<p>where: </p>
+<ul>
+<li>
+<p>[INCLUDE/EXCLUDE] is an optional statement on the first line of the file that specifies whether to include or exclude connections with the specified TA Master alias entries;</p>
+<ul>
+<li>INCLUDE: Only the specified TA Masters with optionally specified IP addresses will be connected to by the agent.</li>
+<li>EXCLUDE: Only the specified TA Masters will be specifically excluded from being connected to by the agent.</li>
+</ul>
+<p>If omitted, the INCLUDE statement is used.</p>
+</li>
+<li>
+<p>TA Master alias entry is one of the following forms:</p>
+<ul>
+<li>
+<p><em>MasterAlias</em></p>
+<p>The <em>MasterAlias</em> typically has the form ES_&lt;<em>hostname-of-master</em>&gt;<em>1 and is case-insensitive. If specified alone on the line, only the _MasterAlias</em> will be verified that it matches what was presented by the TA Master in its registration message.</p>
+</li>
+<li>
+<p><em>MasterAlias</em>:<em>IPaddress1</em></p>
+<p>For local connections, where the TA Master host machine IP addresses are directly accessible by the agent, you need specify only <em>IPaddress1</em>. This address will be verified against the IP address presented by the TA Master in its registration message and the IP address obtained from the network as the origination of the connection that provided the registration message.</p>
+</li>
+<li>
+<p><em>MasterAlias</em>:<em>IPaddress1</em>;<em>IPaddress2</em></p>
+<p>For connections that must traverse a firewall, you must specify a second IP address. <em>IPaddress2</em> will be the externally known address of the firewall. The externally known address of the firewall is what will be obtained by the agent when it retrieves the IP address of the origination of the connection through which the registration message was delivered.</p>
+</li>
+</ul>
+</li>
+</ul>
+<!--
+Optionally, you can use an INCLUDE or EXCLUDE statement on the first line. If specified, these one word entries must be on the first line.  INCLUDE is the default if nothing is specified.
+
+* INCLUDE - only the specified TA Masters with optionally specified IP addresses will be connected to by the agent.
+* EXCLUDE - the specified TA Masters will be specifically excluded from being connected to by the agent.
+
+-->
+
+<p>For situations where a TA Master could have multiple IPs, Failover scenarios, or disaster recovery situations, the same MasterAlias can be specified with different IPaddress parameters, similar to the following:</p>
+<pre><code>INCLUDE
+hou-testvm-531:192.168.48.111;172.19.25.125 
+hou-testvm-531:192.168.55.211;172.19.25.125
+zostest:192.168.95.92          
+zostest:192.168.42.92           
+catest
+</code></pre>
+
+<h2 id="agent-connection-protocol">Agent connection protocol</h2>
+<p>The following describes the normal connection sequence for an agent to TA Master connection to be established:</p>
+<ol>
+<li>The TA Master connects to the agent’s well-known port (default 5912, configurable).  The TA Master sends a registration message to the agent specifying the TA Master’s IP address and listening port (and some other configuration information).  This connection is then terminated.</li>
+<li>For each TA Master that has registered as above, the agent will attempt to connect using the information from the registration.  This will happen each time the connection is lost for any reason.</li>
+<li>The agent will attempt to connect to the IP and port provided by the TA Master in the registration message.  If this fails, the agent will attempt to connect to the IP obtained from the network as the source IP (might be firewall IP) and the port provided in the registration message.</li>
+<li>When the connection is made, the agent will generate an encryption key based on a random seed.  This encryption key and other configuration information about the agent will be sent to the TA Master.  The encryption key is 'wrapped' by a method that the TA Master knows how to 'unwrap' in order to get the raw key.  This key is used to encrypt the body of all future messages (encryption is a configurable option that is on by default).</li>
+</ol>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../java-cluster/" title="Configuring a cluster to run a Java-based agent" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Configuring a cluster to run a Java-based agent
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../ta-agents-overview/" title="Overview" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Overview
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.3636a4ec.min.js"></script>
+      <script src="../assets/javascripts/bundle.e9fe3281.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

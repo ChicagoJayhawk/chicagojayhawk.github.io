@@ -1,0 +1,1068 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.12">
+    
+    
+      
+        <title>Managing Windows agents - Tidal Automation Agents Adminstration Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4dd2dd8d.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#managing-windows-agents" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="Tidal Automation Agents Adminstration Guide" class="md-header-nav__button md-logo" aria-label="Tidal Automation Agents Adminstration Guide">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Tidal Automation Agents Adminstration Guide
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Managing Windows agents
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Tidal Automation Agents Adminstration Guide" class="md-nav__button md-logo" aria-label="Tidal Automation Agents Adminstration Guide">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Tidal Automation Agents Adminstration Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../about-agents/" title="About Tidal agents" class="md-nav__link">
+      About Tidal agents
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Managing Windows agent installations
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Managing Windows agent installations" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Managing Windows agent installations
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../windows-install/" title="Installing Windows agents" class="md-nav__link">
+      Installing Windows agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../windows-config/" title="Configuring Windows agents" class="md-nav__link">
+      Configuring Windows agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Managing Windows agents
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="Managing Windows agents" class="md-nav__link md-nav__link--active">
+      Managing Windows agents
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#starting-and-stopping-agents" class="md-nav__link">
+    Starting and stopping agents
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checking-agent-status" class="md-nav__link">
+    Checking agent status
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-jobs-to-run-in-the-foreground" class="md-nav__link">
+    Configuring jobs to run in the foreground
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-jobs-to-run-from-the-default-desktop" class="md-nav__link">
+    Configuring jobs to run from the default desktop
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-a-windows-agent-to-be-a-remote-job-adapter-proxy" class="md-nav__link">
+    Configuring a Windows agent to be a remote job adapter proxy
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuring a Windows agent to be a remote job adapter proxy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#designating-the-https-port" class="md-nav__link">
+    Designating the HTTPS port
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assigning-a-certificate-to-the-https-port" class="md-nav__link">
+    Assigning a certificate to the HTTPS port
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../windows-cluster/" title="Configuring a cluster to run a Windows agent" class="md-nav__link">
+      Configuring a cluster to run a Windows agent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../windows-uninstall/" title="Uninstalling Windows agents" class="md-nav__link">
+      Uninstalling Windows agents
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Managing Java-based agent installations
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Managing Java-based agent installations" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Managing Java-based agent installations
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../java-install/" title="Installing Java-based agents" class="md-nav__link">
+      Installing Java-based agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../java-config/" title="Configuring Java-based agents" class="md-nav__link">
+      Configuring Java-based agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../java-manage/" title="Managing Java-based agents" class="md-nav__link">
+      Managing Java-based agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../java-cluster/" title="Configuring a cluster to run a Java-based agent" class="md-nav__link">
+      Configuring a cluster to run a Java-based agent
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../secure-agents/" title="Securing agent and TA Master connections" class="md-nav__link">
+      Securing agent and TA Master connections
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Managing agents in Tidal Automation
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Managing agents in Tidal Automation" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        Managing agents in Tidal Automation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ta-agents-overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ta-agent-define/" title="Defining agent connections" class="md-nav__link">
+      Defining agent connections
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ta-agent-enable/" title="Enabling and disabling agent connections" class="md-nav__link">
+      Enabling and disabling agent connections
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ta-agent-modify/" title="Modifying agent connections" class="md-nav__link">
+      Modifying agent connections
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ta-agent-timezones/" title="Managing agent time zones" class="md-nav__link">
+      Managing agent time zones
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ta-agent-delete/" title="Deleting agent connections" class="md-nav__link">
+      Deleting agent connections
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Managing agent lists
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Managing agent lists" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon"></span>
+        Managing agent lists
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../agent-lists-about/" title="About agent lists" class="md-nav__link">
+      About agent lists
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../agent-lists-create/" title="Creating agent lists" class="md-nav__link">
+      Creating agent lists
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../agent-lists-aws/" title="Using AWS autoscaling with agent lists" class="md-nav__link">
+      Using AWS autoscaling with agent lists
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Troubleshooting agent issues
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Troubleshooting agent issues" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon"></span>
+        Troubleshooting agent issues
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../trb-overview/" title="Troubleshooting overview" class="md-nav__link">
+      Troubleshooting overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../trb-windows/" title="Troubleshooting Windows agents" class="md-nav__link">
+      Troubleshooting Windows agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../trb-java/" title="Troubleshooting Java-based agents" class="md-nav__link">
+      Troubleshooting Java-based agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../trb-tidal/" title="Troubleshooting agent issues in Tidal Automation" class="md-nav__link">
+      Troubleshooting agent issues in Tidal Automation
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Appendixes
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Appendixes" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon"></span>
+        Appendixes
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../app-datamover/" title="DataMover job support" class="md-nav__link">
+      DataMover job support
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../app-hadoop/" title="Installing Hadoop client libraries" class="md-nav__link">
+      Installing Hadoop client libraries
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#starting-and-stopping-agents" class="md-nav__link">
+    Starting and stopping agents
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checking-agent-status" class="md-nav__link">
+    Checking agent status
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-jobs-to-run-in-the-foreground" class="md-nav__link">
+    Configuring jobs to run in the foreground
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-jobs-to-run-from-the-default-desktop" class="md-nav__link">
+    Configuring jobs to run from the default desktop
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-a-windows-agent-to-be-a-remote-job-adapter-proxy" class="md-nav__link">
+    Configuring a Windows agent to be a remote job adapter proxy
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuring a Windows agent to be a remote job adapter proxy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#designating-the-https-port" class="md-nav__link">
+    Designating the HTTPS port
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assigning-a-certificate-to-the-https-port" class="md-nav__link">
+    Assigning a certificate to the HTTPS port
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="managing-windows-agents">Managing Windows agents</h1>
+<p>The Service Manager allows you to manage installed agents, including:</p>
+<ul>
+<li>Starting and stopping Windows agents</li>
+<li>Configuring a cluster to run the Windows agent</li>
+<li>Uninstalling Windows agents</li>
+</ul>
+<h2 id="starting-and-stopping-agents">Starting and stopping agents</h2>
+<p>To start or stop an agent:</p>
+<ol>
+<li>From the Windows <strong>Start</strong> menu, choose <strong>All Programs &gt; Tidal Automation &gt; TA Service Manager</strong> to display the Service Manager.</li>
+<li>From the <strong>Services</strong> list, choose the name of the agent.</li>
+<li>Do either of the following:<ul>
+<li>Click <strong>Start</strong> to start the agent.</li>
+<li>Click <strong>Stop</strong> to stop the agent.</li>
+</ul>
+</li>
+</ol>
+<h2 id="checking-agent-status">Checking agent status</h2>
+<p>To check the status of an agent:</p>
+<ol>
+<li>From the Windows <strong>Start</strong> menu, choose <strong>All Programs &gt; Tidal Automation &gt; Service Manager</strong> to display the Service Manager.</li>
+<li>
+<p>From the <strong>Services</strong> list, choose the name of the agent.</p>
+<p>The status of the agent is displayed at the bottom of the manager.</p>
+</li>
+</ol>
+<h2 id="configuring-jobs-to-run-in-the-foreground">Configuring jobs to run in the foreground</h2>
+<p>Because job processes do not normally require user interaction, they usually run in the background on the agent machine. If needed, you can configure your agent’s system to run job processes in the foreground. Running processes in the foreground both allows user interaction with the process as it runs and enables more processes to run by providing another desktop. You can configure the agent through the Service Manager or by editing the Windows registry.</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Changing settings in the Windows registry can have serious consequences on your computer system. Consult with your Windows system administrator before making any registry changes.</p>
+</div>
+<p>If you want to interact with the process, you can configure the job to run in a command prompt window. </p>
+<ol>
+<li>Navigate to <strong>Service Manager &gt; Service Configuration</strong>.</li>
+<li>Select the <strong>Run as LocalSystem</strong> and <strong>Allow Service to Interact with Desktop</strong> check boxes, respectively.</li>
+<li>Do one of the following:<ul>
+<li>For 64-bit systems, open regedit and navigate to the <code>HKEY_LOCAL_MACHINE\SOFTWARE\Tidal Software</code> registry setting. </li>
+<li>For 32-bit systems, navigate to the <code>HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\TIDAL Software\Agent</code> registry setting.</li>
+</ul>
+</li>
+<li>Right-click <strong>Tidal Software</strong> and select <strong>New &gt; Key</strong>.</li>
+<li>
+<p>Add a new key with the agent name, such as <strong>TIDAL_AGENT_1</strong>.</p>
+<p>Under <strong>TIDAL_AGENT_1</strong>, create a new string called <strong>JobLaunchMode</strong> with assign one of the following values to configure the appearance of the command prompt window:</p>
+<ul>
+<li>0 = Hides the command prompt window and activates another window.</li>
+<li>1 = Activates the command prompt window and displays it minimized. </li>
+<li>2 = Activates the command prompt window and displays it in its current size and position.</li>
+<li>3 = Activates the command prompt window and displays it at maximum size.</li>
+<li>4 = Activates the command prompt window and displays it at minimized size.</li>
+<li>5 = Displays the command prompt window in its current size and position but the window is not activated.</li>
+<li>6 = Displays the command prompt window at its most recent size and position but the window is not activated.</li>
+<li>7 = Activates and displays a window at its original size and position. Recommended when displaying the command prompt window for the first time.</li>
+</ul>
+</li>
+<li>
+<p>In the Job on the <strong>Run</strong> tab, select <strong>Use Password to Run Windows Jobs</strong>.</p>
+</li>
+<li>In the Job on the <strong>Options</strong> tab, select <strong>For UNIX, source users profile</strong>.</li>
+<li>In <strong>Runtime Users</strong>, set the <strong>Windows/FTP/Datamover</strong> password for the <strong>Runtime Users</strong>.</li>
+<li>Log onto the agent server as the runtime user.</li>
+</ol>
+<p>If needed, you can repeat this procedure for the other agent instances that are listed in this key.</p>
+<p>To revert back to the original configuration, delete the registry key that was added.</p>
+<p>To run the process in the foreground without interacting with the job, you can run it from the default desktop.</p>
+<h2 id="configuring-jobs-to-run-from-the-default-desktop">Configuring jobs to run from the default desktop</h2>
+<p>To run a job from the default desktop:</p>
+<p>If you want to interact with the process, you can configure the job to run in a command prompt window. </p>
+<ol>
+<li>Navigate to <strong>Service Manager &gt; Service Configuration</strong>.</li>
+<li>Select the <strong>Run as LocalSystem</strong> and <strong>Allow Service to Interact with Desktop</strong> check boxes, respectively.</li>
+<li>Do one of the following:<ul>
+<li>For 64-bit systems, open regedit and navigate to the <code>HKEY_LOCAL_MACHINE\SOFTWARE\Tidal Software</code> registry setting. </li>
+<li>For 32-bit systems, navigate to the <code>HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\TIDAL Software\Agent</code> registry setting.</li>
+</ul>
+</li>
+<li>Right-click <strong>Tidal Software</strong> and select <strong>New &gt; Key</strong>.</li>
+<li>
+<p>Add a new key with the agent name, such as <strong>TIDAL_AGENT_1</strong>.</p>
+<p>Under <strong>TIDAL_AGENT_1</strong>, create a new string called <strong>JobUseDefDesktop</strong> with assign one of the following values to configure the appearance of the command prompt window:</p>
+<ul>
+<li>0 = Hides the command prompt window and activates another window.</li>
+<li>1 = Activates the command prompt window and displays it minimized. </li>
+<li>2 = Activates the command prompt window and displays it in its current size and position.</li>
+<li>3 = Activates the command prompt window and displays it at maximum size.</li>
+<li>4 = Activates the command prompt window and displays it at minimized size.</li>
+<li>5 = Displays the command prompt window in its current size and position but the window is not activated.</li>
+<li>6 = Displays the command prompt window at its most recent size and position but the window is not activated.</li>
+<li>7 = Activates and displays a window at its original size and position. Recommended when displaying the command prompt window for the first time.</li>
+</ul>
+</li>
+<li>
+<p>In the Job on the <strong>Run</strong> tab, select <strong>Use Password to Run Windows Jobs</strong>.</p>
+</li>
+<li>In the Job on the <strong>Options</strong> tab, select <strong>For UNIX, source users profile</strong>.</li>
+<li>In <strong>Runtime Users</strong>, set the <strong>Windows/FTP/Datamover</strong> password for the <strong>Runtime Users</strong>.</li>
+<li>Log onto the agent server as the runtime user.</li>
+</ol>
+<h2 id="configuring-a-windows-agent-to-be-a-remote-job-adapter-proxy">Configuring a Windows agent to be a remote job adapter proxy</h2>
+<h3 id="designating-the-https-port">Designating the HTTPS port</h3>
+<p>To designate the HTTPS port:</p>
+<ol>
+<li>From the Windows <strong>Start</strong> menu, choose <strong>All Programs &gt; Tidal Automation &gt; TA Service Manager</strong> to display the TA Service Manager.</li>
+<li>Select the <IMG SRC="ellipses.png" ALIGN="BASELINE" ALT=""> button to display the <strong>Service Configuration</strong> dialog box.</li>
+<li>
+<p>In the Path field, edit the command line of the agent by entering the following parameter:</p>
+<p><code>RJAPort=PPPPP</code></p>
+<p>Where <strong>PPPPP</strong> (e.g. <strong>50001</strong>) is the port number you want to use for the HTTPS connection from the adapter.</p>
+<p>For example:</p>
+<p><code>"C:\Program Files\TIDAL\Agent\Bin\TidalAgent.exe" AGENT=TIDAL_AGENT_1 PORT=5912 PATH="C:\Program Files\TIDAL\Agent" RJAPort=PPPPP</code></p>
+</li>
+<li>
+<p>Select <strong>OK</strong>.</p>
+</li>
+<li>Allow Service Manager to restart the agent when you save the change.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Notes</p>
+<p>The proxy support will not be available in this agent if the RJAPort is not specified in the command line. The agent will not be usable by the Adapter until the RJAPort parameter is specified.</p>
+<p>After adding the RJAPort parameter, you will need to add another dependency to the agent service definition called HTTP SSL. You can do this by going into Service Manager and selecting the ellipses (...) for the specific agent, selecting the 'Dependencies' tab, and then selecting 'HTTP SSL' as a new dependency.  The agent will not start automatically at system start-up with-out adding this dependency.(May not be available in Windows 2008 and beyond).</p>
+</div>
+<h3 id="assigning-a-certificate-to-the-https-port">Assigning a certificate to the HTTPS port</h3>
+<p>If your machine already has a valid server certificate, you should only have to perform Steps 4 and 5 below.</p>
+<p>To create a self-signed host certificate and configure it to a port:</p>
+<ol>
+<li>
+<p>Open a DOS prompt (Command Shell).</p>
+<ol>
+<li>From the Windows Start menu, choose Run..</li>
+<li>In the Run dialog box, enter cmd.</li>
+<li>Select OK.</li>
+</ol>
+</li>
+<li>
+<p>Enter the following to create and install a self-signed certificate in the certificate store:</p>
+<p><code>makecert -r -pe -n "CN=localhost" -eku 1.3.6.1.5.5.7.3.1 -ss my -sr localMachine -sky exchange</code> </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The <strong>makecert</strong> command is available in the SDK if you have Visual Studio 2005 installed (<strong>Microsoft Visual Studio 8\SDK\v2.0\Bin</strong>).  There are other ways to get a certificate, Google will give you several options.</p>
+</div>
+</li>
+<li>
+<p>Start <strong>Microsoft Management Console</strong> (mmc) and copy the certifcate  "local" located in <strong>Personal &gt; Certificates into Trusted Root Certification Authorities &gt; Certificates</strong>.</p>
+</li>
+<li>
+<p>At the DOS prompt (Command shell), run either the httpcfg.exe (pre-2008 systems) or netsh (post-2008 systems) command.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The port used to connect from the Master to the proxy agent via HTTPS (the RJAPORT) must be configured to use SSL.</p>
+</div>
+<p><em>For pre-2008 systems</em>:</p>
+<p><code>httpcfg.exe set ssl -i 0.0.0.0:PPPPP -c "Root" -h XXXXX</code></p>
+<p>where <strong>0.0.0.0:PPPPP</strong> is the IP and port. This is for <strong>https://localhost:PPPPP</strong>, where <strong>XXXX</strong> is the thumbprint value of the local certificate. </p>
+<p>To obtain the thrumbprint of a certificate, open the certificate and select the <strong>Details</strong> tab.  Copy the thumbprint and delete all blanks (spaces) between numbers in the thumbprint.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The name after <strong>-c</strong> option in the <strong>httpcfg set</strong> command must match the certificate store, Tidal recommends using Root (see below).</p>
+</div>
+<p>Store Names:</p>
+<ul>
+<li><strong>AddressBook</strong>: The X.509 certificate store for other users.</li>
+<li><strong>AuthRoot</strong>: The X.509 certificate store for third-party certificate authorities (CAs).</li>
+<li><strong>CertificateAuthority</strong>: The X.509 certificate store for intermediate certificate authorities (CAs).</li>
+<li><strong>Disallowed</strong>:The X.509 certificate store for revoked certificates.</li>
+<li><strong>My</strong>: The X.509 certificate store for personal certificates.</li>
+<li><strong>Root</strong>: The X.509 certificate store for trusted root certificate authorities (CAs).</li>
+<li><strong>TrustedPeople</strong>: The X.509 certificate store for directly trusted people and resources.</li>
+<li><strong>TrustedPublisher</strong>: The X.509 certificate store for directly trusted publishers.</li>
+</ul>
+<p><em>For post-2008 systems</em>:</p>
+<p><code>netsh http add sslcert ipport=0.0.0.0:PPPPP certhash=XXXX  appid={YYYYYY}</code></p>
+<p>where</p>
+<ul>
+<li><strong>ipport=0.0.0.0:PPPP</strong>P (e.g. <strong>0.0.0.0:5000</strong>1) is IP and port used for the URL, as in <strong>https://localhost:PPPPP</strong>.</li>
+<li>
+<p><strong>certhash=XXXX</strong> is the Thumbprint value of the local certificate. </p>
+<p>To obtain the thrumbprint of a certificate, open the certificate and select the <strong>Details</strong> tab. Copy the thumbprint and delete all blanks (spaces) between numbers in 'Thumbprint'.</p>
+</li>
+<li>
+<p><strong>appid={YYYYYY}</strong> is a GUID identifying the owning application.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Select OK.</p>
+</li>
+</ol>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../windows-config/" title="Configuring Windows agents" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Configuring Windows agents
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../windows-cluster/" title="Configuring a cluster to run a Windows agent" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Configuring a cluster to run a Windows agent
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.3636a4ec.min.js"></script>
+      <script src="../assets/javascripts/bundle.e9fe3281.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

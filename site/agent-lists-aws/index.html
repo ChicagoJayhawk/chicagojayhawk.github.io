@@ -1,0 +1,1112 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.12">
+    
+    
+      
+        <title>Using AWS autoscaling with agent lists - Tidal Automation Agents Adminstration Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4dd2dd8d.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#using-agent-lists-with-amazon-web-service-auto-scaling" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="Tidal Automation Agents Adminstration Guide" class="md-header-nav__button md-logo" aria-label="Tidal Automation Agents Adminstration Guide">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Tidal Automation Agents Adminstration Guide
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Using AWS autoscaling with agent lists
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Tidal Automation Agents Adminstration Guide" class="md-nav__button md-logo" aria-label="Tidal Automation Agents Adminstration Guide">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Tidal Automation Agents Adminstration Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../about-agents/" title="About Tidal agents" class="md-nav__link">
+      About Tidal agents
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Managing Windows agent installations
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Managing Windows agent installations" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Managing Windows agent installations
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../windows-install/" title="Installing Windows agents" class="md-nav__link">
+      Installing Windows agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../windows-config/" title="Configuring Windows agents" class="md-nav__link">
+      Configuring Windows agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../windows-manage/" title="Managing Windows agents" class="md-nav__link">
+      Managing Windows agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../windows-cluster/" title="Configuring a cluster to run a Windows agent" class="md-nav__link">
+      Configuring a cluster to run a Windows agent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../windows-uninstall/" title="Uninstalling Windows agents" class="md-nav__link">
+      Uninstalling Windows agents
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Managing Java-based agent installations
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Managing Java-based agent installations" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Managing Java-based agent installations
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../java-install/" title="Installing Java-based agents" class="md-nav__link">
+      Installing Java-based agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../java-config/" title="Configuring Java-based agents" class="md-nav__link">
+      Configuring Java-based agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../java-manage/" title="Managing Java-based agents" class="md-nav__link">
+      Managing Java-based agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../java-cluster/" title="Configuring a cluster to run a Java-based agent" class="md-nav__link">
+      Configuring a cluster to run a Java-based agent
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../secure-agents/" title="Securing agent and TA Master connections" class="md-nav__link">
+      Securing agent and TA Master connections
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Managing agents in Tidal Automation
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Managing agents in Tidal Automation" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        Managing agents in Tidal Automation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ta-agents-overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ta-agent-define/" title="Defining agent connections" class="md-nav__link">
+      Defining agent connections
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ta-agent-enable/" title="Enabling and disabling agent connections" class="md-nav__link">
+      Enabling and disabling agent connections
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ta-agent-modify/" title="Modifying agent connections" class="md-nav__link">
+      Modifying agent connections
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ta-agent-timezones/" title="Managing agent time zones" class="md-nav__link">
+      Managing agent time zones
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ta-agent-delete/" title="Deleting agent connections" class="md-nav__link">
+      Deleting agent connections
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+    
+    <label class="md-nav__link" for="nav-6">
+      Managing agent lists
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Managing agent lists" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon"></span>
+        Managing agent lists
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../agent-lists-about/" title="About agent lists" class="md-nav__link">
+      About agent lists
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../agent-lists-create/" title="Creating agent lists" class="md-nav__link">
+      Creating agent lists
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Using AWS autoscaling with agent lists
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="Using AWS autoscaling with agent lists" class="md-nav__link md-nav__link--active">
+      Using AWS autoscaling with agent lists
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creating-an-aws-auto-scaling-group" class="md-nav__link">
+    Creating an AWS Auto Scaling group
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-aws-simple-notification-services-messages" class="md-nav__link">
+    Getting AWS Simple Notification Services messages
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-lambda-function" class="md-nav__link">
+    Creating a lambda function
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lambda-handler" class="md-nav__link">
+    Lambda handler
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-an-aws-environment" class="md-nav__link">
+    Setting up an AWS environment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#client-manager-configuration-properties" class="md-nav__link">
+    Client Manager configuration properties
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-configuration-properties" class="md-nav__link">
+    AWS configuration properties
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Troubleshooting agent issues
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Troubleshooting agent issues" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon"></span>
+        Troubleshooting agent issues
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../trb-overview/" title="Troubleshooting overview" class="md-nav__link">
+      Troubleshooting overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../trb-windows/" title="Troubleshooting Windows agents" class="md-nav__link">
+      Troubleshooting Windows agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../trb-java/" title="Troubleshooting Java-based agents" class="md-nav__link">
+      Troubleshooting Java-based agents
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../trb-tidal/" title="Troubleshooting agent issues in Tidal Automation" class="md-nav__link">
+      Troubleshooting agent issues in Tidal Automation
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Appendixes
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Appendixes" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon"></span>
+        Appendixes
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../app-datamover/" title="DataMover job support" class="md-nav__link">
+      DataMover job support
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../app-hadoop/" title="Installing Hadoop client libraries" class="md-nav__link">
+      Installing Hadoop client libraries
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creating-an-aws-auto-scaling-group" class="md-nav__link">
+    Creating an AWS Auto Scaling group
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-aws-simple-notification-services-messages" class="md-nav__link">
+    Getting AWS Simple Notification Services messages
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-lambda-function" class="md-nav__link">
+    Creating a lambda function
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lambda-handler" class="md-nav__link">
+    Lambda handler
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-an-aws-environment" class="md-nav__link">
+    Setting up an AWS environment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#client-manager-configuration-properties" class="md-nav__link">
+    Client Manager configuration properties
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-configuration-properties" class="md-nav__link">
+    AWS configuration properties
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="using-agent-lists-with-amazon-web-service-auto-scaling">Using agent lists with Amazon Web Service Auto Scaling</h1>
+<p>Amazon Web Service (AWS) Auto Scaling monitors your applications and automatically adjusts the capacity to maintain steady, predictable performance at the lowest possible cost. Using AWS Auto Scaling, you can setup application scaling for multiple resources across multiple services in less time.</p>
+<p>When a new agent machine is launched in the Amazon Web Service (AWS) with Auto Scaling group enabled, the agent is created and added to agent lists in TA. Similarly, when the existing AWS agent machine is removed or terminated from the AWS Auto Scaling group, the agent gets deleted and removed from the agent lists. This process is done automatically using the following AWS components:</p>
+<ul>
+<li>Auto Scaling Group</li>
+<li>AWS Simple Notification Service</li>
+<li>AWS Lambda function</li>
+</ul>
+<p>The following block diagram explains the process involved in registering and unregistering agents with the agent list and TA Master.</p>
+<p><img alt="" src="../images/aws-autoscaling.png" /></p>
+<h2 id="creating-an-aws-auto-scaling-group">Creating an AWS Auto Scaling group</h2>
+<p>Autoscaling helps to ensure that the correct number of instances are available to handle the load for the application. The collections of instances are created and called the Autoscaling groups. The maximum or minimum number of instances are specified in each group. Autoscaling ensures that the group never goes above or below the values set.</p>
+<p>For more information on creating the Autoscaling Group, see the following link:</p>
+<p><a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg.html">https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg.html</a></p>
+<h2 id="getting-aws-simple-notification-services-messages">Getting AWS Simple Notification Services messages</h2>
+<p>A topic is a communication channel to send messages and subscribe to notifications. A topic name is used to create a permanent unique identifier called an Amazon Resource Name (ARN).</p>
+<p>To create a new topic:</p>
+<ol>
+<li>
+<p>In the Amazon SNS console, select <strong>Create topic</strong>.</p>
+<p>The <strong>Create topic</strong> dialog box appears. </p>
+</li>
+<li>
+<p>In the <strong>Topic name</strong> field, enter the topic name.</p>
+</li>
+<li>In the <strong>Display name</strong> field, enter the topic display name. This display name is required for topics with SMS subscriptions.</li>
+<li>
+<p>Select <strong>Create topic</strong>.</p>
+<p>The new topic appears.</p>
+</li>
+</ol>
+<p>To receive messages published to a topic, you have to subscribe an endpoint to that topic. An endpoint is a mobile app, web server, email address, or an Amazon SQS queue that can receive notification messages from Amazon SNS. Once you subscribe an endpoint to a topic and the subscription is confirmed, the endpoint will receive all messages published to that topic. You configure the subscription to send the topic messages to your email account. </p>
+<p>To create subscription:</p>
+<ol>
+<li>
+<p>In the Amazon SNS console, select <strong>Create subscription</strong>.</p>
+<p>The <strong>Create Subscription</strong> dialog box appears.</p>
+</li>
+<li>
+<p>Enter the topic ARN.</p>
+</li>
+<li>From the <strong>Protocol</strong> drop-down list, select <strong>AWS Lambda</strong>.</li>
+<li>From the <strong>Endpoint</strong> drop-down list, choose an email address you can use to receive the notification.</li>
+<li>Select <strong>Create subscription</strong>.</li>
+</ol>
+<p>Go to your email application and open the message from AWS Notifications, and select the link to confirm your subscription. Your web browser displays a confirmation response from Amazon SNS.</p>
+<p>For more information on creating the topic and subscribe topic, see the following links:</p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html</a></li>
+<li><a href="https://docs.aws.amazon.com/sns/latest/dg/SubscribeTopic.html">https://docs.aws.amazon.com/sns/latest/dg/SubscribeTopic.html</a></li>
+</ul>
+<h2 id="creating-a-lambda-function">Creating a lambda function</h2>
+<p>A Lambda function is created to handle the launching of an instance or termination of an instance.</p>
+<p>For more information on creating the Lambda function, see the following link:</p>
+<p><a href="https://docs.aws.amazon.com/lambda/latest/dg/get-started-create-function.html">https://docs.aws.amazon.com/lambda/latest/dg/get-started-create-function.html</a></p>
+<h2 id="lambda-handler">Lambda handler</h2>
+<p>When the instance is up/down, the Lambda Handler receives the AWS SNS messages during launch or termination of the instance. </p>
+<p>The Lambda handler reads the SNS notification message in the Lambda code, fetches the instance details, and calls the TA API call based on the instance notification type.</p>
+<p>If the notification type is <strong>New Instance</strong>, it checks whether the agent already exists. Then:</p>
+<ul>
+<li>If the prefix of the agent name matches with the existing agent name and the agent is disabled, the latest data is updated to that existing disabled agent while creating the new instance in AWS. </li>
+<li>If the IP of the agent matches with the existing agent and the agent is disabled, the latest data is updated to that existing disabled agent while creating the new instance in AWS.</li>
+</ul>
+<p>If the notification type is <strong>Terminate Instance</strong>, it checks whether the agent references with other objects like job. If there is a reference with other objects, the agent is disabled instead of deleting the agent while removing the instance from AWS account.</p>
+<h2 id="setting-up-an-aws-environment">Setting up an AWS environment</h2>
+<p>Before using AWS Autoscaling, you must set up an AWS environment.</p>
+<p>To set up an AWS environment:</p>
+<ol>
+<li>
+<p>Create a new Amazon Machine Image (AMI) with Unix/Window TA agent. </p>
+<p>For more information on creating AMI, see the following link:</p>
+<p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html</a></p>
+<p>If you already have the AMI with the TA agent, move to the next step.</p>
+</li>
+<li>
+<p>Create a Lambda function to handle the launching or termination of instance and upload the <strong>AgentListAutomation.jar</strong> file. </p>
+</li>
+<li>
+<p>Select the following Lambda Handler in the <strong>Handler</strong> text box:</p>
+<p>“<strong>com.tidal.automation.AgentListLambdaFunctionHandler</strong>”</p>
+</li>
+<li>
+<p>Select a memory size of at least 512 MB.</p>
+</li>
+<li>Choose the <strong>Timeout</strong> value based on Lambda running time (suggested value is 5 minutes).</li>
+<li>
+<p>Choose the appropriate Lambda Role.</p>
+<p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html?icmpid=docs_iam_console">https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html?icmpid=docs_iam_console</a></p>
+</li>
+<li>
+<p>Create AWS SNS notifications and subscribe with the Lambda function created in Step 2.</p>
+</li>
+<li>
+<p>Create an <strong>Autoscaling Launch Configuration</strong>.</p>
+<p>For choosing the required configuration with the corresponding AMI, choose the <strong>IP Address Type</strong> as <strong>Assign a public IP address</strong> for every instance.</p>
+<p><a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchConfiguration.html">https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchConfiguration.html</a></p>
+</li>
+<li>
+<p>Create the Autoscaling group and map it with the created SNS. Note that the Virtual Private Cloud (VPC) ID must be the same as the CM VPC.</p>
+</li>
+</ol>
+<h2 id="client-manager-configuration-properties">Client Manager configuration properties</h2>
+<p>The following table provides the list of Client Manager (CM) properties supported in the <strong>AgentListAutomation.jar</strong> file.</p>
+<table>
+<thead>
+<tr>
+<th>Property Name</th>
+<th align="center">Required?</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>active</td>
+<td align="center"></td>
+<td>Whether the agent list is active (default: Y)</td>
+</tr>
+<tr>
+<td>agentlistid</td>
+<td align="center">Y</td>
+<td>ID of the TA agent list. Multiple IDs can be given with comma separated.</td>
+</tr>
+<tr>
+<td>cm_dsppluginname</td>
+<td align="center"></td>
+<td>Plugin name (default: "tes-6.5").</td>
+</tr>
+<tr>
+<td>cm_password</td>
+<td align="center">Y</td>
+<td>Client Manager password.</td>
+</tr>
+<tr>
+<td>cm_servername</td>
+<td align="center">Y</td>
+<td>IP address of the Client Manager.</td>
+</tr>
+<tr>
+<td>cm_serverport</td>
+<td align="center"></td>
+<td>Server port number (default: 8080).</td>
+</tr>
+<tr>
+<td>cm_username</td>
+<td align="center">Y</td>
+<td>Username of the Client Manager.</td>
+</tr>
+<tr>
+<td>description</td>
+<td align="center"></td>
+<td>User-defined description (default: "Agent created by AWS Lambda with AWS Autoscaling group").</td>
+</tr>
+<tr>
+<td>iptype</td>
+<td align="center"></td>
+<td>Type of IP address (default: "public")<ul><li><strong>public</strong>: Agent machine IP address is a public IP address</li><li> <strong>private</strong>:  Agent machine IP address is a public IP address (i.e. within the subnet IP range)</li></ul></td>
+</tr>
+<tr>
+<td>maxjoblimit</td>
+<td align="center"></td>
+<td>Maximum number of jobs that can be run in an agent list (default: 10).</td>
+</tr>
+<tr>
+<td>nameprefix</td>
+<td align="center"></td>
+<td>Agent name prefix (default: "AWS_AGENT").</td>
+</tr>
+<tr>
+<td>ostype</td>
+<td align="center">Y</td>
+<td>Type of operating system used by TA.</td>
+</tr>
+<tr>
+<td>port</td>
+<td align="center"></td>
+<td>Agent machine's port number (default: 5912).</td>
+</tr>
+<tr>
+<td>runtimeuserid</td>
+<td align="center"></td>
+<td>TA runtime user ID (default: 0).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="aws-configuration-properties">AWS configuration properties</h2>
+<p>The following table provides the list of AWS properties.</p>
+<table>
+<thead>
+<tr>
+<th>Property Name</th>
+<th align="center">Required?</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>accesskey</td>
+<td align="center">Y</td>
+<td>AWS access key.</td>
+</tr>
+<tr>
+<td>secretkey</td>
+<td align="center">Y</td>
+<td>AWS secret key.</td>
+</tr>
+<tr>
+<td>Uselambdavariable</td>
+<td align="center"></td>
+<td>Whether to use a Lambda variable (default: Y).<br><ul><li><strong>Y</strong>: All properties are loaded from <strong>automation.props</strong> file and also any property can be overridden through the Lambda environment variable. Note that the CM password must be encrypted by Key Management Service (KMS) key, and other property should not be encrypted.<br><br>For more information on KMS creation, see the following link:<br><br><a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html</a></li><li><strong>N</strong>: All properties are loaded from <strong>automation.props</strong> file. The AWS Lambda environment variable option is not available for this condition.</li></ul></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For security reasons, use read-only user access key and secret key. </p>
+</div>
+<p>To create the user access key in the AWS management console:</p>
+<ol>
+<li>
+<p>In the <strong>Navigation</strong> panel of the Identity Access Management (IAM) console, choose <strong>Users</strong>.</p>
+<p>The list of users having read only access permission is displayed. If you want to add a new user, choose <strong>Add user</strong>.</p>
+</li>
+<li>
+<p>Select the desired user.</p>
+</li>
+<li>
+<p>Select the <strong>Security Credentials</strong> tab and select <strong>Create access key</strong>.</p>
+<p>The user access key is created.</p>
+</li>
+</ol>
+<p>For more information on access key creation, see the following link:
+<a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html">https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html</a></p>
+<p>For security reasons, add KMS key decrypt inline policy for read only user. The following example provides the sample policy JSON file:</p>
+<pre><code>{
+    &quot;Version&quot;: &quot;2012-10-17&quot;,
+    &quot;Statement&quot;: [
+        {
+            &quot;Sid&quot;: &quot;VisualEditor0&quot;,
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Action&quot;: &quot;kms:Decrypt&quot;,
+            &quot;Resource&quot;: &quot;arn:aws:kms:&lt;region&gt;:&lt;AWS AccountId&gt;:key/&lt;KMS key Id&gt;&quot;
+        }
+    ]
+}
+</code></pre>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../agent-lists-create/" title="Creating agent lists" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Creating agent lists
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../trb-overview/" title="Troubleshooting overview" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Troubleshooting overview
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.3636a4ec.min.js"></script>
+      <script src="../assets/javascripts/bundle.e9fe3281.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
